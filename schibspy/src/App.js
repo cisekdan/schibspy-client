@@ -1,4 +1,5 @@
 import React from 'react';
+import Registration from "./Registration";
 
 function App() {
   const userRegistered = false;
@@ -6,7 +7,7 @@ function App() {
   return (
     <div className="App">
   <div className="container">
-
+    <Registration/>
   </div>
     </div>
   );
