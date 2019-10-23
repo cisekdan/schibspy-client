@@ -7,7 +7,7 @@ function Timer() {
 
     return (
         <div className="timer">
-            <p className="timer__info">Do rozpoczęcia quizu pozostało:</p>
+            <h3 className="timer__info">Do rozpoczęcia quizu pozostało:</h3>
             <p className="timer__seconds-left">{secondsLeft} s</p>
         </div>
     );

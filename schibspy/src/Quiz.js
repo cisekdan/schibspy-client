@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useContext} from 'react';
 import "./Quiz.scss";
-import Answers from "./Answers";
+import Answers from "./Answers"
+import {QuizContainer} from "./QuizContainer";
 
 function Quiz () {
 
   const questionNumber = 2;
   const questionTitle = "Amerykę odkrył Krzysztof:";
+   const {secondsLeft} = useContext(QuizContainer.QuizContext);
   const answers = [
     {
       value       : "Kolumb",
@@ -29,9 +31,9 @@ function Quiz () {
             <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
             <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
             <div className="quiz__question-panel">
-                <div className="quiz__question-panel__title">
+                <h3 className="quiz__question-panel__title">
                     {questionTitle}
-                </div>
+                </h3>
                 {<Answers answers={answers} secondsLeft={secondsLeft}/>}
             </div>
         </div>
