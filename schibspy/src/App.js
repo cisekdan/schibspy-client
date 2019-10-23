@@ -7,6 +7,7 @@ function App() {
       <div className="App">
         <div className="container">
           <Display/>
+          <div className="background"/>
         </div>
       </div>
   );

@@ -1,7 +1,5 @@
 
 .App {
-  //background-image: url("./img/schibspy_tlo.png");
-  background-size: cover;
   height: 100vh;
 }
 .container {
@@ -12,4 +10,21 @@
   align-content: center;
   justify-content: center;
   height: 100%;
+
 }
+
+.background {
+  z-index: -100;
+  background-image: url("./img/schibspy_tlo.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  //animation:spin 5s linear infinite;
+}
+
+//@keyframes spin{
+//  from{transform:rotate(0deg)}
+//  to{transform:rotate(360deg)}
+
+

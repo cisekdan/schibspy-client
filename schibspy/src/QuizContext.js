@@ -9,7 +9,8 @@ export const QuizContext = React.createContext(
         title: "",
         questionNumber: undefined,
         questionId: undefined,
-        status: undefined
+        status: undefined,
+        correctAnswer: null
     }
 );
 export function initContextValue() {
@@ -33,19 +34,28 @@ export function initContextValue() {
     const [questionNumber, setQuestionNumber] = useState(undefined);
     const [questionId, setQuestionId] = useState(undefined);
     const [secondsLeft, setSecondsLeft] = useState(undefined);
-    const [status, setStatus] = useState(undefined);
+    const [questionStatus, setQuestionStatus] = useState(undefined);
+    const [quizStatus, setQuizStatus] = useState(undefined);
+    const [correctAnswer, setCorrectAnswer] = useState(null);
+    const [youTubeId, setYouTubeId] = useState(undefined);
+
     const socket = io('http://d3dc8552.ngrok.io');
     socket.emit('join', {name: "User2"});
 
     useEffect(() => {
         socket.on('quiz', function(msg){
             console.log(msg);
-            setAnswers(msg.current_question.answers);
-            setTitle(msg.current_question.title);
+            if(msg.current_question) {
+                setAnswers(msg.current_question.answers);
+                setTitle(msg.current_question.title);
+                setSecondsLeft(msg.current_question.seconds_left);
+                setQuestionStatus(msg.current_question.status);
+                setCorrectAnswer(msg.current_question.correct_answer);
+            }
             setQuestionNumber(parseInt(msg.current_question_position)+1);
             setQuestionId(msg.id);
-            setSecondsLeft(msg.current_question.seconds_left);
-            setStatus(msg.current_question.status);
+            setYouTubeId(msg.youtube_id);
+            setQuizStatus(msg.status);
         });
     }, []);
 
@@ -55,6 +65,9 @@ export function initContextValue() {
         questionNumber,
         questionId,
         secondsLeft,
-        status
+        questionStatus,
+        correctAnswer,
+        youTubeId,
+        quizStatus
     }
 }

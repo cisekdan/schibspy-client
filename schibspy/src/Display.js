@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Registration from "./Registration";
 import Timer from "./Timer.js";
 import Quiz from "./Quiz";
 import ListOfWinners from "./ListOfWinners";
+import {QuizContainer} from "./QuizContainer";
 
 function Display() {
+    const {quizStatus} = useContext(QuizContainer.QuizContext);
     const userRegistered = true;
-    const timerOn = false;
-    const gameInProgress = true;
+    const timerOn = quizStatus === "scheduled";
+    const gameInProgress = quizStatus === "started";
 
     if(!userRegistered) {
         return <Registration/>
