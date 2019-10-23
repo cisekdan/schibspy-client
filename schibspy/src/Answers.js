@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import {QuizContainer} from "./QuizContainer";
 
 function Answers ({answers, secondsLeft}) {
-    const {questionId, status, correctAnswer} = useContext(QuizContainer.QuizContext);
+    const {questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
 
 
@@ -15,7 +15,7 @@ function Answers ({answers, secondsLeft}) {
       socket.emit('choice', {chosenAnswerId: id, questionId: questionId});
     }
   };
-  if (status!=="finished") {
+  if (questionStatus!=="finished") {
     return (
       <div className="anwers">
         <p
