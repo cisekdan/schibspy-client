@@ -1,0 +1,12 @@
+.timer {
+    text-align: center;
+
+    &__info {
+        display: block;
+        margin: 100px auto;
+    }
+
+    &__seconds-left {
+        font-size: 100px;
+    }
+}
