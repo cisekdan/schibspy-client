@@ -5,39 +5,25 @@ import {QuizContainer} from "./QuizContainer";
 
 function Quiz () {
 
-  const questionNumber = 2;
-  const questionTitle = "Amerykę odkrył Krzysztof:";
-   const {secondsLeft} = useContext(QuizContainer.QuizContext);
-  const answers = [
-    {
-      value       : "Kolumb",
-      id          : 0,
-      totalCounter: 124
-    },
-    {
-      value: "Ibisz",
-      id   : 1,
-      totalCounter: 201
-    },
-    {
-      value       : "Krawczyk",
-      id          : 2,
-      totalCounter: 150
-    }];
-  const secondsLeft = 2;
+   const {secondsLeft, answers, title, questionNumber} = useContext(QuizContainer.QuizContext);
 
-    return (
-        <div className="quiz">
-            <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
-            <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
-            <div className="quiz__question-panel">
-                <h3 className="quiz__question-panel__title">
-                    {questionTitle}
-                </h3>
-                {<Answers answers={answers} secondsLeft={secondsLeft}/>}
-            </div>
-        </div>
-    );
+       return (
+           <React.Fragment>
+           <video className="video" autoPlay>
+               <source src="./pytanie_01.mp4" type="video/mp4"/>
+           </video>
+           <div className="quiz">
+               <h3 className="quiz__question-number">{questionNumber}/12</h3>
+               <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
+               <div className="quiz__question-panel">
+                   <h3 className="quiz__question-panel__title">
+                       {title}
+                   </h3>
+                   {<Answers answers={answers} secondsLeft={secondsLeft}/>}
+               </div>
+           </div>
+           </React.Fragment>
+       );
 }
 
 export default Quiz;

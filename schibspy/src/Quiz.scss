@@ -1,12 +1,26 @@
+.video {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 0;
+}
+
 .quiz {
   height: 100vh;
- //background-image: url("https://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2019/04/Quizzpy-1.png");
+  //background-image: url("./img/pytanie.png");
   background-size: cover;
-  padding: 40px;
+  padding: 20px;
+
+
 
   &__question-number {
+    border-radius: 25px;
+    background: rgba(0,0,0,0.3);
+    padding: 5px;
+    width: 50px;
     text-align: center;
-    margin-top: 70px;
+    color: white;
+    z-index:2;
   }
 
   &__timer {
@@ -24,7 +38,7 @@
     margin-top: 20px;
     padding: 20px;
     color: white;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.3);
     &__title {
       text-align: center;
     }
