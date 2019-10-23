@@ -1,18 +1,21 @@
 .winners {
-    display:block;
-    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
 }
 
 .winners__card {
     background-color: #fff9ec;
-    width: 70%;
-    height: 40%;
+    width: 60%;
+    height: 60%;
     border-radius: 0.5rem;
+    margin: 0;
     padding: 1rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.75rem;
+    font-size: 1.5rem;
 }
 
 .winners__winner {
@@ -20,19 +23,19 @@
 }
 
 .winners__img-container {
-    width:100%;
+    width: 100%;
     border-bottom: #e2dccd dotted 1px;
-}
-
-.winners__medal {
-    margin: 0 auto 1rem;
-    display:block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .winners__container {
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
-.winners__container::-webkit-scrollbar { width: 0 !important }
+.winners__container::-webkit-scrollbar {
+    width: 0 !important
+}
 
 

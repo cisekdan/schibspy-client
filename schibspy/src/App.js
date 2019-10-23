@@ -10,11 +10,9 @@ import {QuizContainer} from "./QuizContainer";
 function App() {
   const userRegistered = true;
   const timerOn = false;
-  const gameInProgress = true;
-  const isListOfWinnersAvailable = false;
-
  const {secondsLeft} = useContext(QuizContainer.QuizContext);
- console.log(secondsLeft);
+  const gameInProgress = false;
+  const isListOfWinnersAvailable = true;
 
   return (
       <div className="App">
