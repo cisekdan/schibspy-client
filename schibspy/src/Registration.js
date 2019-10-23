@@ -7,7 +7,7 @@ const Registration = () => {
     <form className="form">
       <div className="form__form-group">
       <label htmlFor="name-input" className="form__label">
-        Podaj imię:
+        Podaj imię
       </label>
       <input id="name-input"
              className="form__input"

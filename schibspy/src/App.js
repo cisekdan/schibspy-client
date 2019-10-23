@@ -6,9 +6,9 @@ import Quiz from "./Quiz";
 
 
 function App() {
-  const userRegistered = true;
+  const userRegistered = false;
   const timerOn = false;
-  const gameInProgress = true;
+  const gameInProgress = false;
 
   return (
     <div className="App">
