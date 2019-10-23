@@ -9,33 +9,33 @@ function Quiz () {
   const answers = [
     {
       value       : "Kolumb",
-      id          : 1,
+      id          : 0,
       totalCounter: 124
     },
     {
       value: "Ibisz",
-      id   : 2,
+      id   : 1,
       totalCounter: 201
     },
     {
       value       : "Krawczyk",
-      id          : 3,
+      id          : 2,
       totalCounter: 150
     }];
   const secondsLeft = 2;
 
-  return (
-    <div className="quiz">
-      <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
-      <div className="quiz__timer"><p>{secondsLeft}</p></div>
-      <div className="quiz__question-panel">
-        <div className="quiz__question-panel__title">
-          {questionTitle}
+    return (
+        <div className="quiz">
+            <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
+            <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
+            <div className="quiz__question-panel">
+                <div className="quiz__question-panel__title">
+                    {questionTitle}
+                </div>
+                {<Answers answers={answers} secondsLeft={secondsLeft}/>}
+            </div>
         </div>
-        {<Answers answers={answers} />}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Quiz;
