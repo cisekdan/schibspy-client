@@ -9,7 +9,7 @@ function App() {
   const userRegistered = true;
   const timerOn = false;
   const gameInProgress = true;
-  const isListOfWinnersAvailable = true;
+  const isListOfWinnersAvailable = false;
 
   return (
     <div className="App">
