@@ -2,7 +2,7 @@ import React from "react";
 import "./ListOfWinners.css";
 
 const ListOfWinners = () => {
-  const winners = ["Kolumb", "Ibisz", "Krawczyk", "Jakiśtam", "Nijaki", "Krawczyk", "Jakiśtam", "Kolumb", "Ibisz", "Krawczyk", "Jakiśtam", "Nijaki", "Krawczyk", "Jakiśtam", "Nijaki"];
+  const winners = ["Pawel"];
 
   return (
     <div className="winners">

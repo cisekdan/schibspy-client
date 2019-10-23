@@ -39,10 +39,9 @@ export function initContextValue() {
     const [correctAnswer, setCorrectAnswer] = useState(null);
     const [youTubeId, setYouTubeId] = useState(undefined);
 
-    const socket = io('http://d3dc8552.ngrok.io');
-    socket.emit('join', {name: "User2"});
 
     useEffect(() => {
+        const socket = io('http://d3dc8552.ngrok.io');
         socket.on('quiz', function(msg){
             console.log(msg);
             if(msg.current_question) {
