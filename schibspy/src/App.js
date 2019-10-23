@@ -5,19 +5,17 @@ import Timer from "./Timer.js";
 import Quiz from "./Quiz";
 
 function App() {
-  const userRegistered = true;
+  const userRegistered = false;
   const timerOn = false;
-  const gameInProgress = true;
+  const gameInProgress = false;
 
   return (
     <div className="App">
-  <div className="container">
-    <div className="content">
-    {!userRegistered && <Registration/>}
-    {timerOn && <Timer/>}
-    {gameInProgress && <Quiz/>}
-    </div>
-  </div>
+      <div className="container">
+        {!userRegistered && <Registration/>}
+        {timerOn && <Timer/>}
+        {gameInProgress && <Quiz/>}
+      </div>
     </div>
   );
 }
