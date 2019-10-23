@@ -8,8 +8,8 @@ import ListOfWinners from "./ListOfWinners";
 function App() {
   const userRegistered = true;
   const timerOn = false;
-  const gameInProgress = true;
-  const isListOfWinnersAvailable = false;
+  const gameInProgress = false;
+  const isListOfWinnersAvailable = true;
 
   return (
     <div className="App">

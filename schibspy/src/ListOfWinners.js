@@ -2,13 +2,13 @@ import React from "react";
 import "./ListOfWinners.css";
 
 const ListOfWinners = () => {
-  const winners = ["Kolumb", "Ibisz", "Krawczyk", "Jakiśtam", "Nijaki", "Krawczyk", "Jakiśtam", "Nijaki"];
+  const winners = ["Kolumb", "Ibisz", "Krawczyk", "Jakiśtam", "Nijaki", "Krawczyk", "Jakiśtam", "Kolumb", "Ibisz", "Krawczyk", "Jakiśtam", "Nijaki", "Krawczyk", "Jakiśtam", "Nijaki"];
 
   return (
     <div className="winners">
       <div className="winners__card">
         <div className="winners__img-container">
-          <img height="20"
+          <img height="40"
                className="winners__medal"
                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/223/sports-medal_1f3c5.png" />
         </div>
