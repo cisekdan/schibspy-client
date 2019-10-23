@@ -20,6 +20,10 @@ function Quiz () {
     event.target.playVideo();
   };
 
+  const _onEnd = (event) => {
+    event.target.stopVideo();
+  };
+
 
   return (
     <React.Fragment>
@@ -30,6 +34,7 @@ function Quiz () {
             opts={videoOptions}
             className="video-iframe"
             onReady={_onReady}
+            onEnd={_onEnd}
           />
         </div>
       </div>
