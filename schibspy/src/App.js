@@ -4,7 +4,6 @@ import Registration from "./Registration";
 import Timer from "./Timer.js";
 import Quiz from "./Quiz";
 
-
 function App() {
   const userRegistered = false;
   const timerOn = false;
@@ -12,11 +11,11 @@ function App() {
 
   return (
     <div className="App">
-  <div className="container">
-    {!userRegistered && <Registration/>}
-    {timerOn && <Timer/>}
-    {gameInProgress && <Quiz/>}
-  </div>
+      <div className="container">
+        {!userRegistered && <Registration/>}
+        {timerOn && <Timer/>}
+        {gameInProgress && <Quiz/>}
+      </div>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 .quiz {
-  padding: 40px;
+  height: 100vh;
   background-image: url("https://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2019/04/Quizzpy-1.png");
   background-size: cover;
-  height: 100%;
+  padding: 40px;
 
   &__question-number {
     text-align: center;
+    margin-top: 70px;
   }
 
   &__timer {
@@ -38,7 +39,21 @@
         padding: 15px;
         margin: 20px auto;
         background-color: white;
-        color: black
+        color: black;
+
+        &--is-chosen {
+          background-color: #b8b8b8;
+
+        }
+
+        &--is-correct {
+          background-color: #20a55f;
+
+        }
+
+        &--is-wrong {
+          background-color: #ff5631;
+        }
       }
     }
   }

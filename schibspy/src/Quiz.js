@@ -17,9 +17,9 @@ function Quiz() {
                     {questionTitle}
                 </div>
                 <div className="quiz__question-panel__anwers">
-                    <p className="quiz__question-panel__answers__answer">{answers[0]}</p>
-                    <p className="quiz__question-panel__answers__answer">{answers[1]}</p>
-                    <p className="quiz__question-panel__answers__answer">{answers[2]}</p>
+                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-chosen">{answers[0]}</p>
+                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-correct">{answers[1]}</p>
+                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-wrong">{answers[2]}</p>
                 </div>
             </div>
         </div>
