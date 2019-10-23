@@ -4,6 +4,7 @@ import Registration from "./Registration";
 import Timer from "./Timer.js";
 import Quiz from "./Quiz";
 
+
 function App() {
   const userRegistered = true;
   const timerOn = false;
