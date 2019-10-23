@@ -1,6 +1,6 @@
 .quiz {
   height: 100vh;
-  background-image: url("https://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2019/04/Quizzpy-1.png");
+ //background-image: url("https://ocs-pl.oktawave.com/v1/AUTH_2887234e-384a-4873-8bc5-405211db13a2/spidersweb/2019/04/Quizzpy-1.png");
   background-size: cover;
   padding: 40px;
 
@@ -15,15 +15,13 @@
     width: 30px;
     height: 30px;
     margin: 150px auto 0 auto;
-
-    text-align: center;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 
   }
   &__question-panel {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
     color: white;
     background: rgba(0,0,0,0.2);
@@ -31,7 +29,7 @@
       text-align: center;
     }
 
-    &__answers {
+    .answers {
       &__answer {
         display: block;
         box-shadow: 1px 2px 2px grey;
@@ -40,9 +38,10 @@
         margin: 20px auto;
         background-color: white;
         color: black;
+        cursor: pointer;
 
         &--is-chosen {
-          background-color: #b8b8b8;
+          background-color: #928db8;
 
         }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import "./Quiz.scss"
+import "./Quiz.scss";
+import Answers from "./Answers"
 
 function Quiz() {
 
@@ -8,19 +9,17 @@ function Quiz() {
     const answers = ["Kolumb", "Ibisz", "Krawczyk"];
     const secondsLeft = 5;
 
+
+
     return (
         <div className="quiz">
             <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
-            <p className="quiz__timer">{secondsLeft}</p>
+            <div className="quiz__timer"><p>{secondsLeft}</p></div>
             <div className="quiz__question-panel">
                 <div className="quiz__question-panel__title">
                     {questionTitle}
                 </div>
-                <div className="quiz__question-panel__anwers">
-                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-chosen">{answers[0]}</p>
-                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-correct">{answers[1]}</p>
-                    <p className="quiz__question-panel__answers__answer quiz__question-panel__answers__answer--is-wrong">{answers[2]}</p>
-                </div>
+                {<Answers answers={answers}/>}
             </div>
         </div>
     );
