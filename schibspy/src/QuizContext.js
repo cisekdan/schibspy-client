@@ -40,8 +40,10 @@ export function initContextValue() {
     const [youTubeId, setYouTubeId] = useState(undefined);
 
 
+
     useEffect(() => {
         const socket = io('http://d3dc8552.ngrok.io');
+        socket.emit('join', {name: "Pawel"});
         socket.on('quiz', function(msg){
             console.log(msg);
             if(msg.current_question) {

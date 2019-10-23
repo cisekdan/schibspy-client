@@ -5,9 +5,8 @@ import io from "socket.io-client";
 const Registration = () => {
 
   return (
-    <form className="form" onSubmit={()=>{
-        const socket = io('http://d3dc8552.ngrok.io');
-        socket.emit('join', {name: "Pawel"});}}>
+    <form className="form">
+
       <div className="form__form-group">
       <label htmlFor="name-input" className="form__label">
         Podaj imię

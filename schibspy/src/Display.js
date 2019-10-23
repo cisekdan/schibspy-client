@@ -11,7 +11,6 @@ function Display() {
     const timerOn = quizStatus === "scheduled";
     const gameInProgress = quizStatus === "started";
     const showListOfWinners = quizStatus === "finished";
-
     if(!userRegistered) {
         return <Registration/>
     }
@@ -25,7 +24,5 @@ function Display() {
         return <ListOfWinners/>
     }
     return <div/>;
-
 }
-
 export default Display;
