@@ -8,7 +8,8 @@ export const QuizContext = React.createContext(
         answers: [],
         title: "",
         questionNumber: undefined,
-        questionId: undefined
+        questionId: undefined,
+        status: undefined
     }
 );
 export function initContextValue() {
@@ -30,7 +31,9 @@ export function initContextValue() {
         }]);
     const [title, setTitle] = useState("");
     const [questionNumber, setQuestionNumber] = useState(undefined);
-    const [questionId, setQuestionId] = useState(undefined)
+    const [questionId, setQuestionId] = useState(undefined);
+    const [secondsLeft, setSecondsLeft] = useState(undefined);
+    const [status, setStatus] = useState(undefined);
     const socket = io('http://d3dc8552.ngrok.io');
     socket.emit('join', {name: "User2"});
 
@@ -41,16 +44,17 @@ export function initContextValue() {
             setTitle(msg.current_question.title);
             setQuestionNumber(parseInt(msg.current_question_position)+1);
             setQuestionId(msg.id);
+            setSecondsLeft(msg.current_question.seconds_left);
+            setStatus(msg.current_question.status);
         });
     }, []);
 
-    const secondsLeft = 5;
-
     return {
-        secondsLeft,
         answers,
         title,
         questionNumber,
-        questionId
+        questionId,
+        secondsLeft,
+        status
     }
 }

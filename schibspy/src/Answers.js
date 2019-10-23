@@ -6,9 +6,12 @@ import {QuizContainer} from "./QuizContainer";
 function Answers ({answers, secondsLeft}) {
 
   let correctAnswerId = 0;
-  const [showAnswers, setShowAnswers] = useState(false);
+    const {questionId, status} = useContext(QuizContainer.QuizContext);
+    console.log(status)
+  const [showAnswers, setShowAnswers] = useState(status === "finished");
+  console.log(showAnswers);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
-  const {questionId} = useContext(QuizContainer.QuizContext);
+
 
   const chooseAnswer = (id) => {
     if (!chosenAnswerId && secondsLeft) {
@@ -46,15 +49,15 @@ function Answers ({answers, secondsLeft}) {
     <div className="anwers">
       <p className={`answers__answer 
                         ${correctAnswerId === answers[0].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[0].body}</span> <span>{answers[0].totalCounter}</span>
+        <span>{answers[0].body}</span> <span>{answers[0].answer_count}</span>
       </p>
       <p className={`answers__answer 
                         ${correctAnswerId === answers[1].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[1].body}</span> <span>{answers[1].totalCounter}</span>
+        <span>{answers[1].body}</span> <span>{answers[1].answer_count}</span>
       </p>
       <p className={`answers__answer 
                         ${correctAnswerId === answers[2].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[2].body}</span> <span>{answers[2].totalCounter}</span>
+        <span>{answers[2].body}</span> <span>{answers[2].answer_count}</span>
       </p>
     </div>
 
