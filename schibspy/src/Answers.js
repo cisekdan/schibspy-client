@@ -9,7 +9,7 @@ function Answers ({answers, secondsLeft}) {
 
 
   const chooseAnswer = (id) => {
-    if (!chosenAnswerId && secondsLeft) {
+    if (secondsLeft) {
       setChosenAnswerId(id);
       const socket = io('http://d3dc8552.ngrok.io');
       socket.emit('choice', {chosenAnswerId: id, questionId: questionId});
