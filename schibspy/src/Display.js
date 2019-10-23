@@ -10,6 +10,7 @@ function Display() {
     const userRegistered = true;
     const timerOn = quizStatus === "scheduled";
     const gameInProgress = quizStatus === "started";
+    const showListOfWinners = quizStatus === "finished";
 
     if(!userRegistered) {
         return <Registration/>
@@ -20,7 +21,11 @@ function Display() {
     if(gameInProgress) {
         return <Quiz/>
     }
-    return <ListOfWinners/>
+    if (showListOfWinners) {
+        return <ListOfWinners/>
+    }
+    return <div/>;
+
 }
 
 export default Display;
