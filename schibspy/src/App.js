@@ -6,7 +6,7 @@ import Quiz from "./Quiz";
 import ListOfWinners from "./ListOfWinners";
 
 function App() {
-  const userRegistered = false;
+  const userRegistered = true;
   const timerOn = false;
   const gameInProgress = false;
   const isListOfWinnersAvailable = true;
