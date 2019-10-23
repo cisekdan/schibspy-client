@@ -8,7 +8,7 @@ import ListOfWinners from "./ListOfWinners";
 function App() {
   const userRegistered = true;
   const timerOn = false;
-  const gameInProgress = false;
+  const gameInProgress = true;
   const isListOfWinnersAvailable = true;
 
   return (

@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 
-function Answers({answers}) {
+function Answers({answers, secondsLeft}) {
 
 
     let correctAnswerId = 0;
-    const [showAnswers, setShowAnswers] = useState(false)
+    const [showAnswers, setShowAnswers] = useState(false);
     const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
 
-    const chooseAnswer = (e) => {
-        if(!chosenAnswerId) {
-            setChosenAnswerId(e.target.dataset.id);
-            console.log(e.target.dataset.id);
-            setTimeout(()=>setShowAnswers(true), 5000);
+
+    const chooseAnswer = (id) => {
+        if(!chosenAnswerId && secondsLeft) {
+            setChosenAnswerId(id);
+            setTimeout(()=>setShowAnswers(true), 2000);
         }
     };
 
@@ -20,22 +20,20 @@ function Answers({answers}) {
         return (
             <div className="anwers">
                 <p
-                    className={`answers__answer ${chosenAnswerId===0? "answers__answer--is-chosen" : ""}`}
-                    onClick={chooseAnswer}
-                    data-id="0">
-                        {answers[0]}
+
+                    className={`answers__answer ${chosenAnswerId===answers[0].id ? "answers__answer--is-chosen" : ""}`}
+                    onClick={() => chooseAnswer(answers[0].id)}>
+                    {answers[0].value}
                 </p>
                 <p
-                    className={`answers__answer ${chosenAnswerId===1 ? "answers__answer--is-chosen" : ""}`}
-                    onClick={chooseAnswer}
-                    data-id="1">
-                    {answers[1]}
+                    className={`answers__answer ${chosenAnswerId===answers[1].id ? "answers__answer--is-chosen" : ""}`}
+                    onClick={() => chooseAnswer(answers[1].id)}>
+                    {answers[1].value}
                 </p>
                 <p
-                    className={`answers__answer ${chosenAnswerId===2  ? "answers__answer--is-chosen" : ""}`}
-                    onClick={chooseAnswer}
-                    data-id="2">
-                    {answers[2]}
+                    className={`answers__answer ${chosenAnswerId===answers[2].id  ? "answers__answer--is-chosen" : ""}`}
+                    onClick={() => chooseAnswer(answers[2].id)}>
+                    {answers[2].value}
                 </p>
             </div>
         )
@@ -43,19 +41,16 @@ function Answers({answers}) {
     return (
                 <div className="anwers">
                     <p className={`answers__answer 
-                        ${correctAnswerId ===0 ? "answers__answer--is-correct" : (chosenAnswerId ===0 ? "answers__answer--is-wrong" : "")}`}
-                       data-id="0">
-                        {answers[0]}
+                        ${correctAnswerId ===answers[0].id ? "answers__answer--is-correct" : (chosenAnswerId ===answers[0].id ? "answers__answer--is-wrong" : "")}`}>
+                        {answers[0].value}
                     </p>
                     <p className={`answers__answer 
-                        ${correctAnswerId ===1 ? "answers__answer--is-correct" : (chosenAnswerId === 1 ? "answers__answer--is-wrong" : "")}`}
-                       data-id="1">
-                        {answers[1]}
+                        ${correctAnswerId ===answers[1].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer--is-wrong" : "")}`}>
+                        {answers[1].value}
                     </p>
                     <p className={`answers__answer 
-                        ${correctAnswerId ===2 ? "answers__answer--is-correct" : (chosenAnswerId ===2 ? "answers__answer--is-wrong" : "")}`}
-                       data-id="2">
-                        {answers[2]}
+                        ${correctAnswerId ===answers[2].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer--is-wrong" : "")}`}>
+                        {answers[2].value}
                     </p>
                 </div>
 
