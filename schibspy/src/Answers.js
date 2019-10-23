@@ -20,6 +20,7 @@ function Answers({answers, secondsLeft}) {
         return (
             <div className="anwers">
                 <p
+
                     className={`answers__answer ${chosenAnswerId===answers[0].id ? "answers__answer--is-chosen" : ""}`}
                     onClick={() => chooseAnswer(answers[0].id)}>
                     {answers[0].value}

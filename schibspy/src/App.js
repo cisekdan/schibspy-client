@@ -3,18 +3,21 @@ import "./App.scss";
 import Registration from "./Registration";
 import Timer from "./Timer.js";
 import Quiz from "./Quiz";
+import ListOfWinners from "./ListOfWinners";
 
 function App() {
   const userRegistered = true;
   const timerOn = false;
   const gameInProgress = true;
+  const isListOfWinnersAvailable = true;
 
   return (
     <div className="App">
       <div className="container">
-        {!userRegistered && <Registration/>}
+        {!userRegistered && !isListOfWinnersAvailable && <Registration/>}
         {timerOn && <Timer/>}
         {gameInProgress && <Quiz/>}
+        {!gameInProgress && isListOfWinnersAvailable && <ListOfWinners/>}
       </div>
     </div>
   );

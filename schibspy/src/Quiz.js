@@ -9,6 +9,8 @@ function Quiz() {
     const answers = [{id: 0, value: "Kolumb"}, {id: 1, value: "Ibisz"}, {id: 2, value: "Krawczyk"}];
     const secondsLeft = 1;
 
+
+
     return (
         <div className="quiz">
             <h3 className="quiz__question-number">Pytanie {questionNumber}</h3>
