@@ -1,13 +1,31 @@
+//.video {
+//  width: 100%;
+//  height: 100%;
+//  position: fixed;
+//  z-index: 0;
+//
+//}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
 .video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: fixed;
-  z-index: 0;
 }
 
 .quiz {
   height: 100vh;
-  //background-image: url("./img/pytanie.png");
   background-size: cover;
   padding: 20px;
 
