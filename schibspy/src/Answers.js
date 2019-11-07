@@ -1,23 +1,21 @@
 
 import React, { useState, useContext } from "react";
-import io from "socket.io-client";
 import {QuizContainer} from "./QuizContainer";
 
 function Answers ({answers, secondsLeft}) {
-    const {questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
+    const {socket, questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
 
 
   const chooseAnswer = (id) => {
     if (secondsLeft) {
       setChosenAnswerId(id);
-      const socket = io('http://d3dc8552.ngrok.io');
       socket.emit('choice', {chosenAnswerId: id, questionId: questionId});
     }
   };
   if (questionStatus!=="finished") {
     return (
-      <div className="anwers">
+      <div className="answers">
         <p
           className={`answers__answer ${chosenAnswerId === answers[0].id ? "answers__answer--is-chosen" : ""}`}
           onClick={() => chooseAnswer(answers[0].id)}>
