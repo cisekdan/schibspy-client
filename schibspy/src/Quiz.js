@@ -6,7 +6,7 @@ import YouTube from 'react-youtube';
 
 function Quiz () {
 
-  const {secondsLeft, answers, title, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
+  const {secondsLeft, title, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideOverlay = questionNumber === 0;
   const videoOptions = {
     playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -45,8 +45,7 @@ function Quiz () {
         <div className="quiz__question-panel">
           <h3 className="quiz__question-panel__title">
             {title}
-          </h3>{<Answers answers={answers}
-                         secondsLeft={secondsLeft} />}
+          </h3>{<Answers/>}
         </div>
       </div>
       }

@@ -1,18 +1,25 @@
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {QuizContainer} from "./QuizContainer";
 
-function Answers ({answers, secondsLeft}) {
-    const {socket, questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
+function Answers () {
+    const {answers, secondsLeft, socket, questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
+  const [questionActive, setQuestionActive] = useState(true);
+
+    useEffect(() => {
+       setQuestionActive(true)
+    }, [questionId]);
 
 
   const chooseAnswer = (id) => {
-    if (secondsLeft) {
+    if (secondsLeft && questionActive) {
       setChosenAnswerId(id);
       socket.emit('choice', {chosenAnswerId: id, questionId: questionId});
+      setQuestionActive(false);
     }
   };
+
   if (questionStatus!=="finished") {
     return (
       <div className="answers">
@@ -35,7 +42,7 @@ function Answers ({answers, secondsLeft}) {
     );
   }
   return (
-    <div className="anwers">
+    <div className="answers">
       <p className={`answers__answer 
                         ${correctAnswer === answers[0].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer--is-wrong" : "")}`}>
         <span>{answers[0].body}</span> <span>{answers[0].answer_count}</span>
