@@ -6,8 +6,10 @@ import YouTube from 'react-youtube';
 
 function Quiz () {
 
-  const {secondsLeft, title, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
+  const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideOverlay = questionNumber === 0;
+  const {seconds_left: secondsLeft, title} = question;
+
   const videoOptions = {
     playerVars: { // https://developers.google.com/youtube/player_parameters
       autoplay: 1,

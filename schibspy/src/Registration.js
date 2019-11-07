@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./registration.css";
-import io from "socket.io-client";
+import {QuizContext} from "./QuizContext";
 
 const Registration = () => {
 
+    const {socket, setUserRegistered} = useContext(QuizContext);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        socket.emit('join', {name: e.target.name.value});
+        setUserRegistered(true);
+    };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
 
       <div className="form__form-group">
       <label htmlFor="name-input" className="form__label">

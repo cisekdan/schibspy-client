@@ -3,9 +3,12 @@ import React, { useState, useContext, useEffect } from "react";
 import {QuizContainer} from "./QuizContainer";
 
 function Answers () {
-    const {answers, secondsLeft, socket, questionId, questionStatus, correctAnswer} = useContext(QuizContainer.QuizContext);
+    const {question, socket, questionId} = useContext(QuizContainer.QuizContext);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
   const [questionActive, setQuestionActive] = useState(true);
+    console.log(question);
+  const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
+  console.log(answers)
 
     useEffect(() => {
        setQuestionActive(true)
@@ -45,15 +48,15 @@ function Answers () {
     <div className="answers">
       <p className={`answers__answer 
                         ${correctAnswer === answers[0].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[0].body}</span> <span>{answers[0].answer_count}</span>
+        <span>{answers[0].body}</span> <span>{answers[0].count}</span>
       </p>
       <p className={`answers__answer 
                         ${correctAnswer === answers[1].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[1].body}</span> <span>{answers[1].answer_count}</span>
+        <span>{answers[1].body}</span> <span>{answers[1].count}</span>
       </p>
       <p className={`answers__answer 
                         ${correctAnswer === answers[2].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[2].body}</span> <span>{answers[2].answer_count}</span>
+        <span>{answers[2].body}</span> <span>{answers[2].count}</span>
       </p>
     </div>
 

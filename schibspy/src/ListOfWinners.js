@@ -9,6 +9,7 @@ const ListOfWinners = () => {
       <div className="winners__card">
         <div className="winners__img-container">
           <img height="40"
+               alt="winners image"
                className="winners__medal"
                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/223/sports-medal_1f3c5.png" />
         </div>
