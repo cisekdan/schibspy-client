@@ -29,15 +29,16 @@ export function initContextValue() {
         }],
         title: "Pytanie?",
         seconds_left: 10,
-        status: "active",
+        status: "finished",
         correct_answer: 1
     };
-    const [userRegistered, setUserRegistered] = useState(false)
+    const [userRegistered, setUserRegistered] = useState("Michalina");
     const [questionNumber, setQuestionNumber] = useState(1);
     const [questionId, setQuestionId] = useState(undefined);
     const [quizStatus, setQuizStatus] = useState("started");
-    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c");
+    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3cZ");
     const [question, setQuestion] = useState(defaultQuestion);
+    const totalPlayers = 475;
     let socket = null;
 
     useEffect(() => {
@@ -64,6 +65,7 @@ export function initContextValue() {
         youTubeId,
         quizStatus,
         userRegistered,
-        setUserRegistered
+        setUserRegistered,
+        totalPlayers
     }
 }

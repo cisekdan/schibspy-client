@@ -3,12 +3,10 @@ import React, { useState, useContext, useEffect } from "react";
 import {QuizContainer} from "./QuizContainer";
 
 function Answers () {
-    const {question, socket, questionId} = useContext(QuizContainer.QuizContext);
+    const {question, socket, questionId, totalPlayers} = useContext(QuizContainer.QuizContext);
   const [chosenAnswerId, setChosenAnswerId] = useState(undefined);
   const [questionActive, setQuestionActive] = useState(true);
-    console.log(question);
   const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
-  console.log(answers)
 
     useEffect(() => {
        setQuestionActive(true)
@@ -46,18 +44,27 @@ function Answers () {
   }
   return (
     <div className="answers">
-      <p className={`answers__answer 
-                        ${correctAnswer === answers[0].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[0].body}</span> <span>{answers[0].count}</span>
-      </p>
-      <p className={`answers__answer 
-                        ${correctAnswer === answers[1].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[1].body}</span> <span>{answers[1].count}</span>
-      </p>
-      <p className={`answers__answer 
-                        ${correctAnswer === answers[2].id ? "answers__answer--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer--is-wrong" : "")}`}>
-        <span>{answers[2].body}</span> <span>{answers[2].count}</span>
-      </p>
+      <div className="answers__answer">
+          <div style={{width: `${answers[0].count/totalPlayers*100}%`}}
+               className={`answers__answer__result ${correctAnswer === answers[0].id ? "answers__answer__result--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer__result--is-wrong" : "")}`}>
+            {answers[0].body}
+          </div>
+            {answers[0].count}
+      </div>
+        <div className="answers__answer">
+            <div style={{width: `${answers[1].count/totalPlayers*100}%`}}
+                 className={`answers__answer__result ${correctAnswer === answers[1].id ? "answers__answer__result--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer__result--is-wrong" : "")}`}>
+                {answers[1].body}
+            </div>
+                {answers[1].count}
+        </div>
+        <div className="answers__answer">
+            <div style={{width: `${answers[2].count/totalPlayers*100}%`}}
+                 className={`answers__answer__result ${correctAnswer === answers[2].id ? "answers__answer__result--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer__result--is-wrong" : "")}`}>
+                {answers[2].body}
+            </div>
+            {answers[2].count}
+        </div>
     </div>
 
   );

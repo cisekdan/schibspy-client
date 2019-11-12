@@ -37,27 +37,38 @@
       &__answer {
         display:flex;
         justify-content: space-between;
+        align-items: center;
         box-shadow: 1px 2px 2px grey;
         border-radius: 25px;
-        padding: 15px;
+        padding: 5px 15px 5px 5px;
         margin: 20px auto;
         background-color: white;
         color: black;
         cursor: pointer;
 
-        &--is-chosen {
-          background-color: #928db8;
 
+        &__result {
+          background: gray;
+          height: 100%;
+          border-radius: 25px;
+          padding: 10px;
+
+          &--is-chosen {
+            background-color: #928db8;
+
+          }
+
+          &--is-correct {
+            background-color: #20a55f;
+
+          }
+
+          &--is-wrong {
+            background-color: #ff5631;
+          }
         }
 
-        &--is-correct {
-          background-color: #20a55f;
 
-        }
-
-        &--is-wrong {
-          background-color: #ff5631;
-        }
       }
     }
   }
