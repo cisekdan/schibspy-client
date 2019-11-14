@@ -6,15 +6,12 @@ function Answers() {
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
 
     useEffect(() => {
-        console.log("new question")
         setChosenAnswerId("")
     }, [questionId]);
 
     const chooseAnswer = (id) => {
-        if (chosenAnswerId.length === 0) {
+        if (secondsLeft && chosenAnswerId.length === 0) {
             setChosenAnswerId(id);
-            console.log(id);
-
         }
     };
 

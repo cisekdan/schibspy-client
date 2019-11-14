@@ -4,10 +4,16 @@ import io from "socket.io-client";
 
 export const QuizContext = React.createContext(
     {
+        question: {},
         questionNumber: undefined,
         questionId: undefined,
-        status: undefined,
-        question: undefined
+        youTubeId: undefined,
+        quizStatus: undefined,
+        registeredUser: undefined,
+        setRegisteredUser: ()=>{},
+        totalPlayers: undefined,
+        chosenAnswerId: undefined,
+        setChosenAnswerId: ()=>{}
     }
 );
 export function initContextValue() {
@@ -62,7 +68,6 @@ export function initContextValue() {
 
     useEffect(() => {
         if(chosenAnswerId.length) {
-            console.log("emitting answer");
             socket.emit('choice', {chosenAnswerId: chosenAnswerId, questionId: questionId});
         }
         /* eslint-disable-next-line react-hooks/exhaustive-deps */

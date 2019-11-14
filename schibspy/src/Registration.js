@@ -4,12 +4,12 @@ import {QuizContext} from "./QuizContext";
 
 const Registration = () => {
 
-    const {socket, setUserRegistered} = useContext(QuizContext);
+    const {setRegisteredUser} = useContext(QuizContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setUserRegistered(e.target.name.value);
+        setRegisteredUser(e.target.name.value);
     };
 
   return (
