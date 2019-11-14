@@ -8,8 +8,8 @@ const Registration = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        socket.emit('join', {name: e.target.name.value});
-        setUserRegistered(true);
+
+        setUserRegistered(e.target.name.value);
     };
 
   return (

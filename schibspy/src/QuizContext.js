@@ -12,19 +12,19 @@ export const QuizContext = React.createContext(
 );
 export function initContextValue() {
     const defaultQuestion = {
-        answers: [{body       : "A",
-                    id          : 0,
-                    count: 124
+        answers: [{body: "A",
+                    id: 0,
+                    answer_count: 124
                 },
                 {
                     body: "B",
-                    id   : 1,
-                    count: 201
+                    id: 1,
+                    answer_count: 201
                 },
                 {
-                    body       : "D",
-                    id          : 2,
-                    count: 150
+                    body: "D",
+                    id: 2,
+                    answer_count: 150
 
         }],
         title: "Pytanie?",
@@ -32,18 +32,21 @@ export function initContextValue() {
         status: "finished",
         correct_answer: 1
     };
-    const [userRegistered, setUserRegistered] = useState("Michalina");
+    const [registeredUser, setRegisteredUser] = useState("");
     const [questionNumber, setQuestionNumber] = useState(1);
     const [questionId, setQuestionId] = useState(undefined);
     const [quizStatus, setQuizStatus] = useState("started");
-    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3cZ");
+    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c-");
     const [question, setQuestion] = useState(defaultQuestion);
-    const totalPlayers = 475;
-    let socket = null;
+    const [totalPlayers, setTotalPlayers] = useState(1);
+    const [socket, setSocket] = useState(null);
+    const [chosenAnswerId, setChosenAnswerId] = useState("");
 
     useEffect(() => {
-        socket = io('http://d3dc8552.ngrok.io');
-        if(socket) {
+        const socket = io('wss://schibspy-server.herokuapp.com');
+        setSocket(socket);
+        if(socket && registeredUser) {
+            socket.emit('join', {name: registeredUser});
             socket.on('quiz', function(msg){
                 if(msg.current_question) {
                     setQuestion(msg.current_question);
@@ -55,17 +58,26 @@ export function initContextValue() {
             });
         }
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, []);
+    }, [registeredUser]);
+
+    useEffect(() => {
+        if(chosenAnswerId.length) {
+            console.log("emitting answer");
+            socket.emit('choice', {chosenAnswerId: chosenAnswerId, questionId: questionId});
+        }
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [chosenAnswerId]);
 
     return {
-        socket,
         question,
         questionNumber,
         questionId,
         youTubeId,
         quizStatus,
-        userRegistered,
-        setUserRegistered,
-        totalPlayers
+        registeredUser,
+        setRegisteredUser,
+        totalPlayers,
+        chosenAnswerId,
+        setChosenAnswerId
     }
 }

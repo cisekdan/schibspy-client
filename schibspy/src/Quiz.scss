@@ -14,7 +14,7 @@
 
   &__timer {
     border-radius: 50%;
-    background: coral;
+    background: #ff755d;
     width: 30px;
     height: 30px;
     margin: 150px auto 0 auto;
@@ -39,32 +39,49 @@
         justify-content: space-between;
         align-items: center;
         box-shadow: 1px 2px 2px grey;
-        border-radius: 25px;
-        padding: 5px 15px 5px 5px;
+        border-radius: 30px;
+        padding: 5px;
         margin: 20px auto;
         background-color: white;
         color: black;
         cursor: pointer;
+        position: relative;
+
+        &__text {
+          position: absolute;
+          top: 0;
+          left: 20px;
+          font-weight: 900;
+        }
+
+        &__count {
+          position: absolute;
+          top: 0;
+          right: 20px;
+          font-weight: 900;
+        }
 
 
-        &__result {
-          background: gray;
-          height: 100%;
-          border-radius: 25px;
+        &__inner {
+          background-color: #fff ;
+          height: 20px;
+          width: 100%;
+          min-width: 20px;
+          border-radius: 35px;
           padding: 10px;
 
           &--is-chosen {
-            background-color: #928db8;
+            background-color: #b6c0d2;
 
           }
 
           &--is-correct {
-            background-color: #20a55f;
+            background-color: #56a875;
 
           }
 
           &--is-wrong {
-            background-color: #ff5631;
+            background-color: #f7684a;
           }
         }
 
