@@ -2,12 +2,8 @@ import React, {useContext, useEffect} from "react";
 import {QuizContainer} from "./QuizContainer";
 
 function Answers() {
-    const {question, questionId, totalPlayers, chosenAnswerId, setChosenAnswerId} = useContext(QuizContainer.QuizContext);
+    const {question, totalPlayers, chosenAnswerId, setChosenAnswerId} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
-
-    useEffect(() => {
-        setChosenAnswerId("")
-    }, [questionId]);
 
     const chooseAnswer = (id) => {
         if (secondsLeft && chosenAnswerId.length === 0) {
