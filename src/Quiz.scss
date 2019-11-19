@@ -29,12 +29,14 @@
     color: white;
     background: rgba(0,0,0,0.3);
     border-radius: 15px;
+    font-weight: 900;
     &__title {
       text-align: center;
     }
 
     .answers {
       &__answer {
+
         display:flex;
         justify-content: space-between;
         align-items: center;
@@ -49,16 +51,16 @@
 
         &__text {
           position: absolute;
-          top: 0;
-          left: 20px;
+          top: -1px;
+          left: 15px;
           font-weight: 900;
         }
 
         &__count {
           position: absolute;
-          top: 0;
-          right: 20px;
-          font-weight: 900;
+          top: -1px;
+          right: 15px;
+
         }
 
 

@@ -18,6 +18,7 @@ export const QuizContext = React.createContext(
 );
 export function initContextValue() {
     const defaultQuestion = {
+        id: "1001",
         answers: [{body: "A",
                     id: 0,
                     answer_count: 124
@@ -40,7 +41,6 @@ export function initContextValue() {
     };
     const [registeredUser, setRegisteredUser] = useState("");
     const [questionNumber, setQuestionNumber] = useState(1);
-    const [questionId, setQuestionId] = useState(undefined);
     const [quizStatus, setQuizStatus] = useState("started");
     const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c-");
     const [question, setQuestion] = useState(defaultQuestion);
@@ -58,7 +58,6 @@ export function initContextValue() {
                     setQuestion(msg.current_question);
                 }
                 setQuestionNumber(parseInt(msg.current_question_position)+1);
-                setQuestionId(msg.id);
                 setYouTubeId(msg.youtube_id);
                 setQuizStatus(msg.status);
             });
@@ -68,15 +67,18 @@ export function initContextValue() {
 
     useEffect(() => {
         if(chosenAnswerId.length) {
-            socket.emit('choice', {chosenAnswerId: chosenAnswerId, questionId: questionId});
+            socket.emit('choice', {chosenAnswerId: chosenAnswerId, questionId: question.id});
         }
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [chosenAnswerId]);
 
+    useEffect(() => {
+        setChosenAnswerId("");
+    }, [question.id]);
+
     return {
         question,
         questionNumber,
-        questionId,
         youTubeId,
         quizStatus,
         registeredUser,
