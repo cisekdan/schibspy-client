@@ -1,5 +1,5 @@
-import React, {useContext, useEffect} from "react";
-import {QuizContainer} from "./QuizContainer";
+import React, {useContext} from "react";
+import {QuizContainer} from "../QuizContainer";
 
 function Answers() {
     const {question, totalPlayers, chosenAnswerId, setChosenAnswerId} = useContext(QuizContainer.QuizContext);
