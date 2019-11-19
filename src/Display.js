@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import Registration from "./Registration";
-import Timer from "./Timer.js";
-import Quiz from "./Quiz";
-import ListOfWinners from "./ListOfWinners";
+import Registration from "./components/Registration";
+import Timer from "./components/Timer.js";
+import Quiz from "./components/Quiz";
+import ListOfWinners from "./components/ListOfWinners";
 import {QuizContainer} from "./QuizContainer";
 
 function Display() {

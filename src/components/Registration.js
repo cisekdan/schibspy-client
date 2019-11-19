@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import "./registration.css";
-import {QuizContext} from "./QuizContext";
+import "../scss/Registration.scss";
+import {QuizContext} from "../QuizContext";
 
 const Registration = () => {
 

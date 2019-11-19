@@ -1,5 +1,5 @@
 import React from "react";
-import "./ListOfWinners.css";
+import "../scss/ListOfWinners.scss";
 
 const ListOfWinners = () => {
   const winners = ["Pawel"];

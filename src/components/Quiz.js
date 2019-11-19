@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import "./Quiz.scss";
+import "../scss/Quiz.scss";
 import Answers from "./Answers";
-import { QuizContainer } from "./QuizContainer";
+import { QuizContainer } from "../QuizContainer";
 import YouTube from 'react-youtube';
 
 function Quiz () {
