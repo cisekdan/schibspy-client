@@ -48,9 +48,12 @@ export function initContextValue() {
     const [socket, setSocket] = useState(null);
     const [chosenAnswerId, setChosenAnswerId] = useState("");
 
-    useEffect(() => {
+    useEffect(()=>{
         const socket = io('wss://schibspy-server.herokuapp.com');
         setSocket(socket);
+    }, []);
+
+    useEffect(() => {
         if(socket && registeredUser) {
             socket.emit('join', {name: registeredUser});
             socket.on('quiz', function(msg){
@@ -61,6 +64,9 @@ export function initContextValue() {
                 setYouTubeId(msg.youtube_id);
                 setQuizStatus(msg.status);
             });
+            socket.on('presence_state', ({count}) => {
+                setTotalPlayers(count);
+            })
         }
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [registeredUser]);
