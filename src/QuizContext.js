@@ -42,7 +42,7 @@ export function initContextValue() {
     const [registeredUser, setRegisteredUser] = useState("");
     const [questionNumber, setQuestionNumber] = useState(1);
     const [quizStatus, setQuizStatus] = useState("scheduled");
-    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c-");
+    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c");
     const [question, setQuestion] = useState(defaultQuestion);
     const [totalPlayers, setTotalPlayers] = useState(1);
     const [socket, setSocket] = useState(null);

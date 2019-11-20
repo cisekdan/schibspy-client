@@ -43,7 +43,10 @@ function Quiz () {
       {!hideOverlay &&
       <div className="quiz">
         <h3 className="quiz__question-number">{questionNumber}/12</h3>
+        {secondsLeft > 0 ?
         <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
+            :
+            <div className="quiz__timer quiz__timer--ended"><p>Czas minął</p></div>}
         <div className="quiz__question-panel">
           <h3 className="quiz__question-panel__title">
             {title}

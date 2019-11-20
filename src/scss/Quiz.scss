@@ -14,7 +14,7 @@
 
   &__timer {
     border-radius: 50%;
-    background: #ff755d;
+    background: #b6c0d2;
     width: 30px;
     height: 30px;
     margin: 150px auto 0 auto;
@@ -22,21 +22,32 @@
     justify-content: center;
     align-items: center;
 
+    &--ending {
+      background: #ff755d;
+    }
+
+    &--ended {
+      width: 120px;
+      background: #ff755d;
+      border-radius: 40px;
+      text-align: center;
+    }
+
   }
   &__question-panel {
-    margin-top: 20px;
+    margin: 20px auto;
     padding: 20px;
     color: white;
     background: rgba(0,0,0,0.3);
     border-radius: 15px;
     font-weight: 900;
+    width: 90%;
     &__title {
       text-align: center;
     }
 
     .answers {
       &__answer {
-
         display:flex;
         justify-content: space-between;
         align-items: center;
