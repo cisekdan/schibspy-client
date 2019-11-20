@@ -41,28 +41,33 @@ export function initContextValue() {
     };
     const [registeredUser, setRegisteredUser] = useState("");
     const [questionNumber, setQuestionNumber] = useState(1);
-    const [quizStatus, setQuizStatus] = useState("started");
+    const [quizStatus, setQuizStatus] = useState("scheduled");
     const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c-");
     const [question, setQuestion] = useState(defaultQuestion);
     const [totalPlayers, setTotalPlayers] = useState(1);
     const [socket, setSocket] = useState(null);
     const [chosenAnswerId, setChosenAnswerId] = useState("");
 
-    useEffect(() => {
+    useEffect(()=>{
         const socket = io('wss://schibspy-server.herokuapp.com');
         setSocket(socket);
+        socket.on('quiz', function(msg){
+            if(msg.current_question) {
+                setQuestion(msg.current_question);
+            }
+            setQuestionNumber(parseInt(msg.current_question_position)+1);
+            setYouTubeId(msg.youtube_id);
+            setQuizStatus(msg.status);
+        });
+        socket.on('presence_state', ({count}) => {
+            setTotalPlayers(count);
+        })
+    }, []);
+
+    useEffect(() => {
         if(socket && registeredUser) {
             socket.emit('join', {name: registeredUser});
-            socket.on('quiz', function(msg){
-                if(msg.current_question) {
-                    setQuestion(msg.current_question);
-                }
-                setQuestionNumber(parseInt(msg.current_question_position)+1);
-                setYouTubeId(msg.youtube_id);
-                setQuizStatus(msg.status);
-            });
         }
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [registeredUser]);
 
     useEffect(() => {
