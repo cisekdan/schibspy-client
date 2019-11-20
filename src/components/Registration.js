@@ -1,32 +1,36 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "../scss/Registration.scss";
-import {QuizContext} from "../QuizContext";
+import { QuizContext } from "../QuizContext";
 
-const Registration = () => {
+const Registration = ({quizStatus}) => {
 
-    const {setRegisteredUser} = useContext(QuizContext);
+  const {setRegisteredUser} = useContext(QuizContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        setRegisteredUser(e.target.name.value);
-    };
+    setRegisteredUser(e.target.name.value);
+  };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-
+    <form className="form"
+          onSubmit={handleSubmit}>
+      <h2>Zaraz zaczynamy</h2>{quizStatus !== "scheduled" &&
+    <div className="form__login-container">
       <div className="form__form-group">
-      <label htmlFor="name-input" className="form__label">
-        Podaj imię
-      </label>
-      <input id="name-input"
-             className="form__input"
-             type="text"
-             name="name" />
+        <label htmlFor="name-input"
+               className="form__label">
+          Podaj imię
+        </label>
+        <input id="name-input"
+               className="form__input"
+               type="text"
+               name="name" />
       </div>
       <button className="form__submit"
               type="submit">Gramy!
       </button>
+    </div>}
     </form>
   );
 };
