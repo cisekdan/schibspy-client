@@ -2,15 +2,38 @@
   height: 100vh;
   padding: 20px;
 
-  &__question-number {
-    border-radius: 25px;
-    background: rgba(0,0,0,0.3);
-    padding: 5px;
-    width: 50px;
-    text-align: center;
-    color: white;
-    z-index:2;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__question-number {
+      border-radius: 25px;
+      background: rgba(0,0,0,0.3);
+      padding: 5px;
+      width: 50px;
+      text-align: center;
+      color: white;
+      z-index:2;
+      vertical-align: center;
+      max-height: 25px;
+    }
+
+    &__player-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        padding: 10px;
+        color: white;
+        border-radius: 25px;
+        background: rgba(0,0,0,0.3);
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
   }
+
+
 
   &__timer {
     border-radius: 50%;

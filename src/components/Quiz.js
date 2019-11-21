@@ -6,7 +6,7 @@ import YouTube from 'react-youtube';
 
 function Quiz () {
 
-  const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
+  const {question, questionNumber, youTubeId, questionCount, player} = useContext(QuizContainer.QuizContext);
   const hideOverlay = questionNumber === 0;
   const {seconds_left: secondsLeft, title} = question;
 
@@ -42,7 +42,13 @@ function Quiz () {
       </div>
       {!hideOverlay &&
       <div className="quiz">
-        <h3 className="quiz__question-number">{questionNumber}/12</h3>
+        <div className="quiz__header">
+        <h3 className="quiz__header__question-number">{questionNumber}/{questionCount}</h3>
+        <div className="quiz__header__player-info">
+          <h3>{player.name}</h3>
+          <img width="50px" height="50px" src={player.avatarUrl}/>
+        </div>
+        </div>
         <div className={`quiz__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
         <div className="quiz__question-panel">
           <h3 className="quiz__question-panel__title">
