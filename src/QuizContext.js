@@ -32,7 +32,6 @@ export function initContextValue() {
                     body: "D",
                     id: 2,
                     answer_count: 150
-
         }],
         title: "Pytanie?",
         seconds_left: 10,
@@ -47,6 +46,8 @@ export function initContextValue() {
     const [totalPlayers, setTotalPlayers] = useState(1);
     const [socket, setSocket] = useState(null);
     const [chosenAnswerId, setChosenAnswerId] = useState("");
+    const [questionCount, setQuestionCount] = useState("10");
+    const [player, setPlayer] = useState({});
 
     useEffect(()=>{
         const socket = io('wss://schibspy-server.herokuapp.com');
@@ -58,6 +59,8 @@ export function initContextValue() {
             setQuestionNumber(parseInt(msg.current_question_position)+1);
             setYouTubeId(msg.youtube_id);
             setQuizStatus(msg.status);
+            setQuestionCount(msg.question_count);
+            setPlayer(msg.player);
         });
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
@@ -81,15 +84,22 @@ export function initContextValue() {
         setChosenAnswerId("");
     }, [question.id]);
 
+    const generateNewAvatar = () => {
+        socket.emit('generateNewAvatar');
+    };
+
     return {
         question,
+        player,
         questionNumber,
         youTubeId,
         quizStatus,
+        questionCount,
         registeredUser,
         setRegisteredUser,
         totalPlayers,
         chosenAnswerId,
-        setChosenAnswerId
+        setChosenAnswerId,
+        generateNewAvatar
     }
 }
