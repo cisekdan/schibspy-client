@@ -1,6 +1,7 @@
 .registration {
     background: white;
     border-radius: 25px;
+    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -21,7 +22,7 @@
 .form {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     padding: 20px;
 }
 
