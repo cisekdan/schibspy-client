@@ -1,10 +1,9 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "../scss/Registration.scss";
-import {QuizContext} from "../QuizContext";
+import { QuizContext } from "../QuizContext";
 
-const Registration = () => {
-
-    const {setRegisteredUser, player, generateNewAvatar} = useContext(QuizContext);
+const Registration = ({quizStatus}) => {
+    const {setRegisteredUser, registeredUser, player, generateNewAvatar} = useContext(QuizContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,9 +12,10 @@ const Registration = () => {
 
     return (
         <div className="registration">
+            <h2>Zaraz zaczynamy</h2>
             <img src={player.avatarUrl}/>
             <button className="registration__shuffle-button" onClick={generateNewAvatar}>Wylosuj nowy avatar</button>
-            <Form handleSubmit={handleSubmit}/>
+            {!registeredUser && <Form handleSubmit={handleSubmit}/>}
         </div>
     );
 };
@@ -26,7 +26,8 @@ const Form = ({handleSubmit}) => {
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="form__form-group">
-                <label htmlFor="name-input" className="form__label">
+                <label htmlFor="name-input" 
+                       className="form__label">
                     Podaj imię
                 </label>
                 <input id="name-input"
