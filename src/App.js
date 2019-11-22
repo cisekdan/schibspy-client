@@ -5,9 +5,10 @@ import Display from "./Display";
 function App() {
   return (
       <div className="App">
+          <div className="background"/>
         <div className="container">
           <Display/>
-          <div className="background"/>
+
         </div>
       </div>
   );
