@@ -8,7 +8,7 @@ import Header from "./Header";
 const Quiz = () => {
 
   const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
-  const hideOverlay = questionNumber === 0 || question.status === "hidden";
+  const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
 
   const videoOptions = {
@@ -41,7 +41,7 @@ const Quiz = () => {
           </div>
         </div>
         <Header/>
-        {!hideOverlay &&
+        {!hideQuestionPanel &&
           <div className="quiz__question-panel">
             <div className={`quiz__question-panel__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
             <h3 className="quiz__question-panel__title">{title}</h3>

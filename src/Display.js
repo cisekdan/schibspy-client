@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import Registration from "./components/Registration";
-import Quiz from "./components/Quiz/index";
+import Quiz from "./components/Quiz/";
 import ListOfWinners from "./components/ListOfWinners";
 import {QuizContainer} from "./QuizContainer";
 
