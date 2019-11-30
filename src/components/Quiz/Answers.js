@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {QuizContainer} from "../QuizContainer";
+import {QuizContainer} from "../../QuizContainer";
 
 function Answers() {
     const {question, totalPlayers, chosenAnswerId, setChosenAnswerId, player} = useContext(QuizContainer.QuizContext);
