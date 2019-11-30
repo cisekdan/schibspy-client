@@ -2,11 +2,11 @@ import React, {useContext} from "react";
 import {QuizContainer} from "../QuizContainer";
 
 function Answers() {
-    const {question, totalPlayers, chosenAnswerId, setChosenAnswerId} = useContext(QuizContainer.QuizContext);
+    const {question, totalPlayers, chosenAnswerId, setChosenAnswerId, player} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
 
     const chooseAnswer = (id) => {
-        if (secondsLeft && chosenAnswerId.length === 0) {
+        if (secondsLeft && chosenAnswerId.length === 0 && player.mode === "player") {
             setChosenAnswerId(id);
         }
     };
