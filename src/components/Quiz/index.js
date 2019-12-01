@@ -19,7 +19,7 @@ const Quiz = () => {
   const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
-
+  
   const _onReady = (event) => {
     event.target.playVideo();
   };
@@ -44,7 +44,11 @@ const Quiz = () => {
         <Header/>
         {!hideQuestionPanel &&
           <div className="quiz__question-panel">
-            <div className={`quiz__question-panel__timer ${secondsLeft <= 3 ? "quiz__timer--ending" : ""}`}><p>{secondsLeft}</p></div>
+            {secondsLeft ?
+                <div className={`quiz__question-panel__timer ${secondsLeft <= 3 ?
+                "quiz__question-panel__timer--ending" : ""}`}>{secondsLeft}</div>
+            :
+            <div className="quiz__question-panel__timer quiz__question-panel__timer--ended">Czas minął</div>}
             <h3 className="quiz__question-panel__title">{title}</h3>
             <Answers/>
           </div>}
