@@ -1,6 +1,9 @@
 .quiz {
   height: 100vh;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__header {
     display: flex;
@@ -20,39 +23,43 @@
 
     &__player-info {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+
       h3 {
         padding: 10px;
         color: white;
         border-radius: 25px;
         background: rgba(0,0,0,0.3);
-        margin-right: 5px;
-        margin-bottom: 5px;
+        margin: 5px;
       }
     }
   }
 
-
-
-  &__timer {
-    border-radius: 50%;
-    background: #ff755d;
-    width: 30px;
-    height: 30px;
-    margin: 150px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  }
   &__question-panel {
-    margin-top: 20px;
+    margin-top: 0;
     padding: 20px;
     color: white;
     background: rgba(0,0,0,0.3);
     border-radius: 15px;
     font-weight: 900;
+    position: relative;
+
+    &__timer {
+      border-radius: 50%;
+      background: #ff755d;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -50px;
+      color: black;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     &__title {
       text-align: center;
     }
