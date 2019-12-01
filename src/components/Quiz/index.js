@@ -5,20 +5,21 @@ import { QuizContainer } from "../../QuizContainer";
 import YouTube from 'react-youtube';
 import Header from "./Header";
 
+const videoOptions = {
+  playerVars: { // https://developers.google.com/youtube/player_parameters
+    autoplay: 1,
+    controls: 0,
+    rel: 0,
+    showinfo: 0
+  }
+};
+
 const Quiz = () => {
 
   const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
-
-  const videoOptions = {
-    playerVars: { // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-      controls: 0,
-      rel: 0,
-      showinfo: 0
-    }
-  };
+  
   const _onReady = (event) => {
     event.target.playVideo();
   };
@@ -56,3 +57,4 @@ const Quiz = () => {
 }
 
 export default Quiz;
+
