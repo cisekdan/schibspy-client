@@ -8,7 +8,6 @@ function App() {
           <div className="background"/>
         <div className="container">
           <Display/>
-
         </div>
       </div>
   );
