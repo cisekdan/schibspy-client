@@ -14,11 +14,11 @@ const Registration = ({quizStatus}) => {
     <div className="registration">
       <h2>Zaraz zaczynamy</h2>
       <img src={player.avatarUrl} />
-      {!registeredUser && <React.Fragment>
+      {registeredUser ? <h3>{registeredUser}</h3> : <>
         <button className="registration__shuffle-button"
                 onClick={generateNewAvatar}>Wylosuj nowy avatar
         </button>
-        <Form handleSubmit={handleSubmit} /> </React.Fragment>} {registeredUser && <h3>{registeredUser}</h3>}
+        <Form handleSubmit={handleSubmit} /> </>}
     </div>
   );
 };
