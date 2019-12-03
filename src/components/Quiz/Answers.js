@@ -6,7 +6,10 @@ function Answers() {
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer} = question;
 
     const chooseAnswer = (id) => {
-        if (secondsLeft && chosenAnswerId.length === 0 && player.mode === "player") {
+        if(player.mode !== "player"){
+            return alert("Możesz tylko oglądać grę");
+        }
+        if (secondsLeft && chosenAnswerId.length === 0) {
             setChosenAnswerId(id);
         }
     };
