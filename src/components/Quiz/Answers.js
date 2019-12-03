@@ -11,6 +11,24 @@ function Answers() {
         }
     };
 
+    const setBarWidth = (answer) => {
+        return (answer.answer_count / totalPlayers) * 100
+    };
+
+    const displayAvatars = (answer) => {
+        if(!answer.players) {
+            return null;
+        }
+        return answer.players.map(player => <img className="answers__answer__avatar" src={player.avatarUrl}/>)
+    };
+
+    const setAnswerColors = (answerId) => {
+        if (correctAnswer === answerId) return "answers__answer__inner--is-correct";
+        if (chosenAnswerId === answerId) return "answers__answer__inner--is-wrong";
+        return "answers__answer__inner--is-chosen"
+    };
+
+
     if (questionStatus !== "finished") {
         return (
             <div className="answers">
@@ -41,26 +59,25 @@ function Answers() {
     return (
         <div className="answers">
             <div className="answers__answer">
-                <div style={{width: `${answers[0].answer_count / totalPlayers * 100}%`}}
-                     className={`answers__answer__inner ${correctAnswer === answers[0].id ? "answers__answer__inner--is-correct" : (chosenAnswerId === answers[0].id ? "answers__answer__inner--is-wrong" : "answers__answer__inner--is-chosen")}`}>
-
+                <div style={{width: `${setBarWidth(answers[0])}%`}}
+                     className={`answers__answer__inner ${setAnswerColors(answers[0].id)}`}>
                 </div>
                 <p className="answers__answer__text"> {answers[0].body}</p>
-                <p className="answers__answer__count">{answers[0].answer_count}</p>
+                <p className="answers__answer__count">{displayAvatars(answers[0])}</p>
             </div>
             <div className="answers__answer">
-                <div style={{width: `${answers[1].answer_count / totalPlayers * 100}%`}}
-                     className={`answers__answer__inner ${correctAnswer === answers[1].id ? "answers__answer__inner--is-correct" : (chosenAnswerId === answers[1].id ? "answers__answer__inner--is-wrong" : "answers__answer__inner--is-chosen")}`}>
+                <div style={{width: `${setBarWidth(answers[1])}%`}}
+                     className={`answers__answer__inner ${setAnswerColors(answers[1].id)}`}>
                 </div>
                 <p className="answers__answer__text">{answers[1].body}</p>
-                <p className="answers__answer__count">{answers[1].answer_count}</p>
+                <p className="answers__answer__count">{displayAvatars(answers[1])}</p>
             </div>
             <div className="answers__answer">
-                <div style={{width: `${answers[2].answer_count / totalPlayers * 100}%`}}
-                     className={`answers__answer__inner ${correctAnswer === answers[2].id ? "answers__answer__inner--is-correct" : (chosenAnswerId === answers[2].id ? "answers__answer__inner--is-wrong" : "answers__answer__inner--is-chosen")}`}>
+                <div style={{width: `${setBarWidth(answers[2])}%`}}
+                     className={`answers__answer__inner ${setAnswerColors(answers[0].id)}`}>
                 </div>
                 <p className="answers__answer__text"> {answers[2].body}</p>
-                <p className="answers__answer__count">{answers[2].answer_count}</p>
+                <p className="answers__answer__count">{displayAvatars(answers[2])}</p>
             </div>
         </div>
 

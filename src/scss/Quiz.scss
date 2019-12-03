@@ -105,8 +105,13 @@
 
         &__count {
           position: absolute;
-          top: -1px;
+          top: -15%;
           right: 15px;
+        }
+
+        &__avatar {
+          width: 30px;
+          height: 30px;
         }
 
         &__inner {
