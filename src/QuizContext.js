@@ -43,6 +43,9 @@ export function initContextValue() {
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
         })
+        socket.on('slasher', () => {
+            console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
+        })
     }, []);
 
     useEffect(() => {
