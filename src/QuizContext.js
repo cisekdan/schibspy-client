@@ -48,7 +48,6 @@ export function initContextValue() {
             console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
         });
         socket.on('winners_list', (winnersList) => {
-            console.log(winnersList.players);
             setWinnersList(winnersList.players);
         });
     }, []);
