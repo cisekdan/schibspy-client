@@ -12,8 +12,8 @@ export const QuizContext = React.createContext(
         registeredUser: undefined,
         setRegisteredUser: ()=>{},
         totalPlayers: undefined,
-        chosenAnswerId: undefined,
-        setChosenAnswerId: ()=>{}
+        sendChosenAnswer: ()=>{},
+        generateNewAvatar: ()=>{}
     }
 );
 export function initContextValue() {
@@ -24,7 +24,6 @@ export function initContextValue() {
     const [question, setQuestion] = useState({});
     const [totalPlayers, setTotalPlayers] = useState(1);
     const [socket, setSocket] = useState(null);
-    const [chosenAnswerId, setChosenAnswerId] = useState("");
     const [questionCount, setQuestionCount] = useState("10");
     const [player, setPlayer] = useState({});
 
@@ -44,6 +43,9 @@ export function initContextValue() {
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
         })
+        socket.on('slasher', () => {
+            console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
+        })
     }, []);
 
     useEffect(() => {
@@ -52,16 +54,9 @@ export function initContextValue() {
         }
     }, [registeredUser]);
 
-    useEffect(() => {
-        if(chosenAnswerId.length) {
-            socket.emit('choice', {chosenAnswerId: chosenAnswerId, questionId: question.id});
-        }
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [chosenAnswerId]);
-
-    useEffect(() => {
-        setChosenAnswerId("");
-    }, [question.id]);
+    const sendChosenAnswer = (answerId) => {
+        socket.emit('choice', {chosenAnswerId: answerId, questionId: question.id});
+    };
 
     const generateNewAvatar = () => {
         socket.emit('generateNewAvatar');
@@ -77,8 +72,7 @@ export function initContextValue() {
         registeredUser,
         setRegisteredUser,
         totalPlayers,
-        chosenAnswerId,
-        setChosenAnswerId,
+        sendChosenAnswer,
         generateNewAvatar
     }
 }
