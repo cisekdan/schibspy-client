@@ -7,7 +7,10 @@ function Answers() {
     const playersAnswer = player.answers[question.id];
 
     const chooseAnswer = (id) => {
-        if (secondsLeft && !playersAnswer && player.mode === "player") {
+        if(player.mode !== "player"){
+            return alert("Możesz tylko oglądać grę");
+        }
+        if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
         }
     };
