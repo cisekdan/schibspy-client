@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../scss/ListOfWinners.scss";
+import { QuizContext } from "../QuizContext";
 
 const ListOfWinners = () => {
-  const winners = ["Pawel"];
+  const {winnersList} = useContext(QuizContext);
 
   return (
     <div className="winners">
@@ -14,8 +15,13 @@ const ListOfWinners = () => {
                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/223/sports-medal_1f3c5.png" />
         </div>
         <div className="winners__container">
-          {winners.map((winner, index) => <div key={index}
-                                               className="winners__winner">{winner}</div>)}
+          {winnersList.map((winner, index) =>
+            <div key={index}
+                 className="winners__winner">
+              <div>{winner.name}</div>
+              <div>{winner.score}</div>
+              <img src={winner.avatarUrl} />
+            </div>)}
         </div>
       </div>
     </div>

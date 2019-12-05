@@ -27,6 +27,7 @@ export function initContextValue() {
     const [chosenAnswerId, setChosenAnswerId] = useState("");
     const [questionCount, setQuestionCount] = useState("10");
     const [player, setPlayer] = useState({});
+    const [winnersList, setWinnersList] = useState([]);
 
     useEffect(() => {
         const socket = io('wss://schibspy-server.herokuapp.com');
@@ -43,7 +44,11 @@ export function initContextValue() {
         });
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
-        })
+        });
+        socket.on('winners_list', (winnersList) => {
+            console.log(winnersList.players);
+            setWinnersList(winnersList.players);
+        });
     }, []);
 
     useEffect(() => {
@@ -79,6 +84,7 @@ export function initContextValue() {
         totalPlayers,
         chosenAnswerId,
         setChosenAnswerId,
-        generateNewAvatar
+        generateNewAvatar,
+        winnersList
     }
 }
