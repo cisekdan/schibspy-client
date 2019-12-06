@@ -8,6 +8,8 @@ const Registration = ({quizStatus}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegisteredUser(e.target.name.value);
+      document.body.requestFullscreen();
+      // document.webkitEnterFullscreen();
   };
 
   return (
