@@ -2,15 +2,9 @@ import React, {useContext} from "react";
 import {QuizContainer} from "../../QuizContainer";
 
 function Answers() {
-    const {question, sendChosenAnswer, player} = useContext(QuizContainer.QuizContext);
+    const {question, sendChosenAnswer, player, switchToFullScreen} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer, total_responses: totalResponses} = question;
     const playersAnswer = player.answers ? player.answers[question.id] : null;
-
-    const switchToFullScreen = () => {
-        if (document.fullscreenEnabled) {
-            document.body.requestFullscreen();
-        }
-    };
 
     const chooseAnswer = (id) => {
         if (player.mode !== "player"){

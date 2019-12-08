@@ -3,14 +3,13 @@ import "../scss/Registration.scss";
 import { QuizContext } from "../QuizContext";
 
 const Registration = () => {
-  const {setRegisteredUser, registeredUser, player, generateNewAvatar} = useContext(QuizContext);
+  const {setRegisteredUser, registeredUser, player, generateNewAvatar, switchToFullScreen} = useContext(QuizContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    switchToFullScreen();
     setRegisteredUser(e.target.name.value);
-    if(document.fullscreenEnabled) {
-        document.body.requestFullscreen();
-    }
+
   };
 
   return (
