@@ -7,11 +7,15 @@ function Answers() {
     const playersAnswer = player.answers ? player.answers[question.id] : null;
 
     const chooseAnswer = (id) => {
+        if (player.mode !== "player"){
+            alert("Możesz tylko oglądać grę");
+            if (document.fullscreenEnabled) {
+                document.body.requestFullscreen();
+            }
+            return
+        }
         if (document.fullscreenEnabled) {
             document.body.requestFullscreen();
-        }
-        if (player.mode !== "player"){
-            return alert("Możesz tylko oglądać grę");
         }
         if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
