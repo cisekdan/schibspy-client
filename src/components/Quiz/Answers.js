@@ -6,17 +6,19 @@ function Answers() {
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer, total_responses: totalResponses} = question;
     const playersAnswer = player.answers ? player.answers[question.id] : null;
 
-    const chooseAnswer = (id) => {
-        if (player.mode !== "player"){
-            alert("Możesz tylko oglądać grę");
-            if (document.fullscreenEnabled) {
-                document.body.requestFullscreen();
-            }
-            return
-        }
+    const switchToFullScreen = () => {
         if (document.fullscreenEnabled) {
             document.body.requestFullscreen();
         }
+    };
+
+    const chooseAnswer = (id) => {
+        if (player.mode !== "player"){
+            alert("Możesz tylko oglądać grę");
+            switchToFullScreen();
+            return
+        }
+        switchToFullScreen();
         if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
         }
