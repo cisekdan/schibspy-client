@@ -23,7 +23,7 @@ function Answers() {
         if(!answer.players) {
             return null;
         }
-        return answer.players.map(player => <img key={player.name} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
+        return answer.players.map(player => <img alt="player avatar" key={player.name} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
     };
 
     const setAnswerColors = (answerId) => {

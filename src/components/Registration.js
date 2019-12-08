@@ -13,7 +13,7 @@ const Registration = ({quizStatus}) => {
   return (
     <div className="registration">
       <h2>Zaraz zaczynamy</h2>
-      <img src={player.avatarUrl} />
+      <img alt="player avatar" src={player.avatarUrl} />
       {registeredUser ? <h3>{registeredUser}</h3> : <>
         <button className="registration__shuffle-button"
                 onClick={generateNewAvatar}>Wylosuj nowy avatar

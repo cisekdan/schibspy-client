@@ -46,6 +46,7 @@ export function initContextValue() {
         socket.on('slasher', () => {
             console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

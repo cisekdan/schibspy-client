@@ -10,7 +10,7 @@ const Header = () => {
             {player.mode === "player" &&
             <>
                 <h3 className="quiz__header__score">Wynik: {player.score}</h3>
-                <h3 className="quiz__header__player-name">{player.name} <img width="45px" height="45px" src={player.avatarUrl}/></h3>
+                <h3 className="quiz__header__player-name">{player.name} <img alt="Player avatat" width="45px" height="45px" src={player.avatarUrl}/></h3>
             </>}
         </div>
     )
