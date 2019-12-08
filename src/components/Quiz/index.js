@@ -30,17 +30,19 @@ const Quiz = () => {
 
   return (
       <div className="quiz">
-        <div className="video-background">
-          <div className="video-foreground">
-            <YouTube
-                videoId={youTubeId}
-                opts={videoOptions}
-                className="video-iframe"
-                onReady={_onReady}
-                onEnd={_onEnd}
-            />
-          </div>
-        </div>
+        { /* VIDEO FROM YOUTUBE VERSION * /}
+        {/*<div className="video-background">*/}
+        {/*  <div className="video-foreground">*/}
+        {/*    <YouTube*/}
+        {/*        videoId={youTubeId}*/}
+        {/*        opts={videoOptions}*/}
+        {/*        className="video-iframe"*/}
+        {/*        onReady={_onReady}*/}
+        {/*        onEnd={_onEnd}*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        <div className="quiz__background"/>
         <Header/>
         {!hideQuestionPanel &&
           <div className="quiz__question-panel">
