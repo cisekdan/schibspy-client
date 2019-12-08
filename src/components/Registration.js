@@ -11,10 +11,6 @@ const Registration = () => {
     if(document.fullscreenEnabled) {
         document.body.requestFullscreen();
     }
-    setTimeout(()=>{
-        window.scrollTo(0,1);
-      }, 100);
-
   };
 
   return (
