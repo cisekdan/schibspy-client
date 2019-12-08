@@ -2,20 +2,25 @@ import React, { useContext } from "react";
 import "../scss/Registration.scss";
 import { QuizContext } from "../QuizContext";
 
-const Registration = ({quizStatus}) => {
+const Registration = () => {
   const {setRegisteredUser, registeredUser, player, generateNewAvatar} = useContext(QuizContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegisteredUser(e.target.name.value);
-      document.body.requestFullscreen();
-      // document.webkitEnterFullscreen();
+    if(document.fullscreenEnabled) {
+        document.body.requestFullscreen();
+    }
+    setTimeout(()=>{
+        window.scrollTo(0,1);
+      }, 100);
+
   };
 
   return (
     <div className="registration">
       <h2>Zaraz zaczynamy</h2>
-      <img src={player.avatarUrl} />
+      <img className="registration__avatar" src={player.avatarUrl} />
       {registeredUser ? <h3>{registeredUser}</h3> : <>
         <button className="registration__shuffle-button"
                 onClick={generateNewAvatar}>Wylosuj nowy avatar

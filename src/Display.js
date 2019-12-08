@@ -5,7 +5,7 @@ import ListOfWinners from "./components/ListOfWinners";
 import {QuizContainer} from "./QuizContainer";
 
 function Display() {
-    const {quizStatus, registeredUser} = useContext(QuizContainer.QuizContext);
+    const {quizStatus} = useContext(QuizContainer.QuizContext);
     const quizScheduled = quizStatus === "scheduled";
     const gameInProgress = quizStatus === "started";
     const showListOfWinners = quizStatus === "finished";
@@ -14,7 +14,7 @@ function Display() {
         return <Quiz/>
     }
     if(quizScheduled) {
-        return <Registration quizStatus={quizStatus}/>
+        return <Registration/>
     }
     if(showListOfWinners) {
         return <ListOfWinners/>
