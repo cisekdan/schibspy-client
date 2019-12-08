@@ -9,13 +9,14 @@ function Display() {
     const quizScheduled = quizStatus === "scheduled";
     const gameInProgress = quizStatus === "started";
     const showListOfWinners = quizStatus === "finished";
-    if(!registeredUser || quizScheduled) {
-        return <Registration quizStatus={quizStatus}/>
-    }
+
     if(gameInProgress) {
         return <Quiz/>
     }
-    if (showListOfWinners) {
+    if(quizScheduled) {
+        return <Registration quizStatus={quizStatus}/>
+    }
+    if(showListOfWinners) {
         return <ListOfWinners/>
     }
     return <div/>;

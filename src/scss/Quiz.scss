@@ -4,10 +4,23 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image:url('../img/quiz.gif');
+    background-size: cover;
+  }
 
   &__header {
     display: flex;
     justify-content: space-between;
+    color: white;
 
     &__question-number {
       border-radius: 25px;
@@ -15,10 +28,15 @@
       padding: 5px;
       width: 50px;
       text-align: center;
-      color: white;
       z-index:2;
       vertical-align: center;
       max-height: 25px;
+    }
+
+    &__score {
+      padding: 10px;
+      border-radius: 25px;
+      background: rgba(0,0,0,0.3);
     }
 
     &__player-info {
@@ -28,7 +46,6 @@
 
       h3 {
         padding: 10px;
-        color: white;
         border-radius: 25px;
         background: rgba(0,0,0,0.3);
         margin: 5px;
@@ -100,7 +117,7 @@
 
         &__count {
           position: absolute;
-          top: -1px;
+          top: -15%;
           right: 15px;
         }
 
