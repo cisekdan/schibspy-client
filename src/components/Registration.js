@@ -37,7 +37,8 @@ const Form = ({handleSubmit}) => {
         <input id="name-input"
                className="form__input"
                type="text"
-               name="name" />
+               name="name"
+               maxLength={15}/>
       </div>
       <button className="form__submit"
               type="submit">Gramy!

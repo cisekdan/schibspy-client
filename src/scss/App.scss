@@ -2,8 +2,10 @@
 .App {
   height: 100vh;
 }
+
 .container {
-  max-width: 576px;
+  max-width: 56.25vh;
+  width: 100vw;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -11,15 +13,18 @@
   justify-content: center;
   height: 100%;
 
+
 }
 
 .background {
   z-index: -100;
   background-image: url("../img/schibspy_tlo.png");
   background-size: cover;
-  width: 100%;
-  height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   //animation:spin 5s linear infinite;
 }
 

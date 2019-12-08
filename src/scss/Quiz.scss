@@ -21,36 +21,40 @@
     display: flex;
     justify-content: space-between;
     color: white;
+    font-size: 12px;
 
     &__question-number {
       border-radius: 25px;
       background: rgba(0,0,0,0.3);
-      padding: 5px;
-      width: 50px;
-      text-align: center;
-      z-index:2;
+      padding: 10px;
       vertical-align: center;
-      max-height: 25px;
+      margin: 5px;
     }
 
     &__score {
       padding: 10px;
       border-radius: 25px;
       background: rgba(0,0,0,0.3);
+      margin: 5px;
     }
 
-    &__player-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      h3 {
-        padding: 10px;
+    &__player-name {
+        padding: 10px 45px 10px 10px;
         border-radius: 25px;
         background: rgba(0,0,0,0.3);
         margin: 5px;
+        position: relative;
+
+      img {
+        position: absolute;
+        top: calc(50% - 4px);
+        right: -4px;
+        transform: translateY(-50%);
       }
+
     }
+
+
   }
   
   &__question-panel {
