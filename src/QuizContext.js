@@ -28,7 +28,8 @@ export function initContextValue() {
     const [player, setPlayer] = useState({});
     const [showAlert, setShowAlert] = useState(false);
     const [showSlasher, setShowSlasher] = useState(false);
-
+    const [winnersList, setWinnersList] = useState([]);
+    const [showListOfWinners, setShowListOfWinners] = useState(false);
 
     useEffect(() => {
         const socket = io('wss://schibspy-server.herokuapp.com');
@@ -45,15 +46,18 @@ export function initContextValue() {
         });
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
-        })
+        });
         socket.on('slasher', () => {
-            console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
             setTimeout(()=>{
                 setShowSlasher(true);
                 setTimeout(()=>setShowSlasher(false), 3000)
             }, 5000)
-        })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        });
+        socket.on('winners_list', (winnersList) => {
+            setShowListOfWinners(true);
+            setWinnersList(winnersList.players);
+        });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -84,6 +88,8 @@ export function initContextValue() {
         generateNewAvatar,
         showAlert,
         setShowAlert,
-        showSlasher
+        showSlasher,
+        winnersList,
+        showListOfWinners
     }
 }
