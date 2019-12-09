@@ -26,6 +26,9 @@ export function initContextValue() {
     const [socket, setSocket] = useState(null);
     const [questionCount, setQuestionCount] = useState("10");
     const [player, setPlayer] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+    const [showSlasher, setShowSlasher] = useState(false);
+
 
     useEffect(() => {
         const socket = io('wss://schibspy-server.herokuapp.com');
@@ -45,6 +48,10 @@ export function initContextValue() {
         })
         socket.on('slasher', () => {
             console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
+            setTimeout(()=>{
+                setShowSlasher(true);
+                setTimeout(()=>setShowSlasher(false), 3000)
+            }, 5000)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -74,6 +81,9 @@ export function initContextValue() {
         setRegisteredUser,
         totalPlayers,
         sendChosenAnswer,
-        generateNewAvatar
+        generateNewAvatar,
+        showAlert,
+        setShowAlert,
+        showSlasher
     }
 }
