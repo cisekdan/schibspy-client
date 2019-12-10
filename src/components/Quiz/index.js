@@ -44,10 +44,10 @@ const Quiz = () => {
         {/*</div>*/}
         <div className="quiz__background"/>
         {showAlert &&<div className="quiz__overlay">
-           <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>}
+           <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
         </div>}
         {showSlasher &&<div className="quiz__overlay">
-          <div className="quiz__overlay__slasher">KOSIOR</div>}
+          <div className="quiz__overlay__slasher">KOSIOR</div>
         </div>}
         <Header/>
         {!hideQuestionPanel &&
