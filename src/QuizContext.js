@@ -96,7 +96,7 @@ export function initContextValue() {
         showAlert,
         setShowAlert,
         showSlasher,
-        switchToFullScreen
+        switchToFullScreen,
         winnersList,
         showListOfWinners
     }
