@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import "../scss/Registration.scss";
 import { QuizContext } from "../QuizContext";
 
-const Registration = ({quizStatus}) => {
-  const {setRegisteredUser, registeredUser, player, generateNewAvatar} = useContext(QuizContext);
+const Registration = () => {
+  const {setRegisteredUser, registeredUser, player, generateNewAvatar, switchToFullScreen} = useContext(QuizContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    switchToFullScreen();
     setRegisteredUser(e.target.name.value);
+
   };
 
   return (

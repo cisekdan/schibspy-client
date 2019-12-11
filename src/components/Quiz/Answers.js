@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {QuizContainer} from "../../QuizContainer";
 
 function Answers() {
-    const {question, sendChosenAnswer, player, setShowAlert} = useContext(QuizContainer.QuizContext);
+    const {question, sendChosenAnswer, player, setShowAlert, switchToFullScreen} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer, total_responses: totalResponses} = question;
     const playersAnswer = player.answers ? player.answers[question.id] : null;
 
@@ -10,8 +10,10 @@ function Answers() {
         if(player.mode !== "player"){
             setShowAlert(true);
             setTimeout(()=>setShowAlert(false), 2000);
+            switchToFullScreen();
             return
         }
+        switchToFullScreen();
         if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
         }

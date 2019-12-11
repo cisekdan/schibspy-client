@@ -7,6 +7,10 @@
     padding: 5px;
     margin: 50px 20px;
 
+    &__avatar {
+        width: 60%;
+    }
+
     &__shuffle-button {
         border-radius: 0.25rem;
         border: dodgerblue solid 1px;

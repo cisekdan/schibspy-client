@@ -74,6 +74,13 @@ export function initContextValue() {
         socket.emit('generateNewAvatar');
     };
 
+    const switchToFullScreen = () => {
+        if(document.fullscreenEnabled) {
+            document.body.requestFullscreen();
+            window.screen.orientation.lock("portrait-primary");
+        }
+    };
+
     return {
         question,
         player,
@@ -89,6 +96,7 @@ export function initContextValue() {
         showAlert,
         setShowAlert,
         showSlasher,
+        switchToFullScreen
         winnersList,
         showListOfWinners
     }
