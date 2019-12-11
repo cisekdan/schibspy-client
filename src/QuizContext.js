@@ -58,15 +58,12 @@ export function initContextValue() {
             setWinnersList(winnersList.players);
         });
 
-        socket.on('invalid_password', () => {
-            console.log('siema')
-        })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if(socket && registeredUser) {
-            socket.emit('join', {name: registeredUser, password: "siema"});
+            socket.emit('join', {name: registeredUser});
         }
     }, [registeredUser]);
 
