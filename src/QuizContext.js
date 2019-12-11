@@ -26,6 +26,8 @@ export function initContextValue() {
     const [socket, setSocket] = useState(null);
     const [questionCount, setQuestionCount] = useState("10");
     const [player, setPlayer] = useState({});
+    const [showAlert, setShowAlert] = useState(false);
+    const [showSlasher, setShowSlasher] = useState(false);
     const [winnersList, setWinnersList] = useState([]);
     const [showListOfWinners, setShowListOfWinners] = useState(false);
 
@@ -46,12 +48,16 @@ export function initContextValue() {
             setTotalPlayers(count);
         });
         socket.on('slasher', () => {
-            console.log("KOSIOOOOOOOOOOR!!!!!!!!!");
+            setTimeout(()=>{
+                setShowSlasher(true);
+                setTimeout(()=>setShowSlasher(false), 3000)
+            }, 5000)
         });
         socket.on('winners_list', (winnersList) => {
             setShowListOfWinners(true);
             setWinnersList(winnersList.players);
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -87,6 +93,9 @@ export function initContextValue() {
         totalPlayers,
         sendChosenAnswer,
         generateNewAvatar,
+        showAlert,
+        setShowAlert,
+        showSlasher,
         switchToFullScreen
         winnersList,
         showListOfWinners

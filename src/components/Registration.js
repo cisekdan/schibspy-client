@@ -15,7 +15,7 @@ const Registration = () => {
   return (
     <div className="registration">
       <h2>Zaraz zaczynamy</h2>
-      <img className="registration__avatar" src={player.avatarUrl} />
+      <img alt="player avatar" src={player.avatarUrl} />
       {registeredUser ? <h3>{registeredUser}</h3> : <>
         <button className="registration__shuffle-button"
                 onClick={generateNewAvatar}>Wylosuj nowy avatar
@@ -39,7 +39,8 @@ const Form = ({handleSubmit}) => {
         <input id="name-input"
                className="form__input"
                type="text"
-               name="name" />
+               name="name"
+               maxLength={20}/>
       </div>
       <button className="form__submit"
               type="submit">Gramy!

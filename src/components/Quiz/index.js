@@ -16,7 +16,7 @@ const videoOptions = {
 
 const Quiz = () => {
 
-  const {question, questionNumber, youTubeId} = useContext(QuizContainer.QuizContext);
+  const {question, questionNumber, showAlert, showSlasher, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
   
@@ -43,6 +43,12 @@ const Quiz = () => {
         {/*  </div>*/}
         {/*</div>*/}
         <div className="quiz__background"/>
+        {showAlert &&<div className="quiz__overlay">
+           <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
+        </div>}
+        {showSlasher &&<div className="quiz__overlay">
+          <div className="quiz__overlay__slasher">KOSIOR</div>
+        </div>}
         <Header/>
         {!hideQuestionPanel &&
           <div className="quiz__question-panel">

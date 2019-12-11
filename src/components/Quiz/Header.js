@@ -9,11 +9,8 @@ const Header = () => {
             <h3 className="quiz__header__question-number">{questionNumber}/{questionCount}</h3>}
             {player.mode === "player" &&
             <>
-                <h3 className="quiz__header__score">Wynik: {player.score}</h3>
-                <div className="quiz__header__player-info">
-                    <h3>{player.name}</h3>
-                    <img width="50px" height="50px" src={player.avatarUrl}/>
-                </div>
+                <h3 className="quiz__header__score">Wynik:{player.score}</h3>
+                <h3 className="quiz__header__player-name">{player.name} <img alt="Player avatar" width="45px" height="45px" src={player.avatarUrl}/></h3>
             </>}
         </div>
     )

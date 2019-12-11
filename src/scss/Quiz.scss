@@ -1,6 +1,6 @@
 .quiz {
   height: 100vh;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,40 +17,84 @@
     background-size: cover;
   }
 
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.5);
+
+    &__alert {
+      background: white;
+      width: 60%;
+      margin: auto;
+      display: block;
+      font-weight: 800;
+      padding: 40px;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      border-radius: 15px;
+
+    }
+
+    &__slasher {
+      height: 100%;
+      color: red;
+      padding: 100px 40px;
+      font-size: 50px;
+      font-weight: 900;
+      text-align: center;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
     color: white;
+    font-size: 15px;
+
+    @media screen and (max-width : 570px) {
+      font-size: 3.2vw !important;
+    }
+
 
     &__question-number {
       border-radius: 25px;
       background: rgba(0,0,0,0.3);
-      padding: 5px;
-      width: 50px;
-      text-align: center;
-      z-index:2;
+      padding: 10px;
       vertical-align: center;
-      max-height: 25px;
+      margin: 5px;
     }
 
     &__score {
       padding: 10px;
       border-radius: 25px;
       background: rgba(0,0,0,0.3);
+      margin: 5px;
     }
 
-    &__player-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      h3 {
-        padding: 10px;
+    &__player-name {
+        padding: 10px 45px 10px 10px;
         border-radius: 25px;
         background: rgba(0,0,0,0.3);
         margin: 5px;
+        position: relative;
+
+      img {
+        position: absolute;
+        top: calc(50% - 4px);
+        right: -4px;
+        transform: translateY(-50%);
       }
+
     }
+
+
   }
   
   &__question-panel {

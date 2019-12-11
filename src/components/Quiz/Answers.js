@@ -2,13 +2,14 @@ import React, {useContext} from "react";
 import {QuizContainer} from "../../QuizContainer";
 
 function Answers() {
-    const {question, sendChosenAnswer, player, switchToFullScreen} = useContext(QuizContainer.QuizContext);
+    const {question, sendChosenAnswer, player, setShowAlert, switchToFullScreen} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer, total_responses: totalResponses} = question;
     const playersAnswer = player.answers ? player.answers[question.id] : null;
 
     const chooseAnswer = (id) => {
-        if (player.mode !== "player"){
-            alert("Możesz tylko oglądać grę");
+        if(player.mode !== "player"){
+            setShowAlert(true);
+            setTimeout(()=>setShowAlert(false), 2000);
             switchToFullScreen();
             return
         }
@@ -26,7 +27,7 @@ function Answers() {
         if(!answer.players) {
             return null;
         }
-        return answer.players.map(player => <img key={player.name} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
+        return answer.players.map(player => <img alt="player avatar" key={player.name} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
     };
 
     const setAnswerColors = (answerId) => {
