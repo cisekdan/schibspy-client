@@ -15,7 +15,7 @@ const Registration = () => {
   return (
     <div className="registration">
       <h2>Zaraz zaczynamy</h2>
-      <img alt="player avatar" src={player.avatarUrl} />
+      <img alt="player avatar" className={"registration__avatar"} src={player.avatarUrl} />
       {registeredUser ? <h3>{registeredUser}</h3> : <>
         <button className="registration__shuffle-button"
                 onClick={generateNewAvatar}>Wylosuj nowy avatar
