@@ -3,7 +3,6 @@ import "./scss/App.scss";
 import Display from "./Display";
 
 function App() {
-    console.log(window.screen.height);
   return (
       <div className="App" >
           <div className="background"/>
