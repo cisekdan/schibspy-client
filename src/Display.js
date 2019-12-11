@@ -16,7 +16,7 @@ function Display() {
         return <Quiz/>
     }
     if(quizScheduled) {
-        return <Registration quizStatus={quizStatus}/>
+        return <Registration/>
     }
     return <div/>;
 }
