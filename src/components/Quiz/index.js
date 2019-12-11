@@ -15,7 +15,6 @@ const videoOptions = {
 };
 
 const Quiz = () => {
-
   const {question, questionNumber, showAlert, showSlasher, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
@@ -42,7 +41,9 @@ const Quiz = () => {
         {/*    />*/}
         {/*  </div>*/}
         {/*</div>*/}
-        <div className="quiz__background"/>
+        <div className="quiz__background">
+          <video autoPlay muted playsInline loop src="/quiz.mp4"/>
+        </div>
         {showAlert &&<div className="quiz__overlay">
            <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
         </div>}
