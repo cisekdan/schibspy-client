@@ -7,31 +7,83 @@
 
 .winners__card {
     background-color: #fff9ec;
-    width: 60%;
-    height: 60%;
-    border-radius: 0.5rem;
+    width: 75%;
+    height: 80%;
+    border-radius: 25px;
     margin: 0;
-    padding: 1rem 2rem 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .winners__winner {
     margin-bottom: 1rem;
+    border-bottom: #e2dccd dotted 1px;
+
+    &__player-info {
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 5px;
+        }
+    }
+
+    &__score {
+        text-align: right;
+    }
 }
 
-.winners__img-container {
+.winners__header {
     width: 100%;
     border-bottom: #e2dccd dotted 1px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items:center;
 }
 
 .winners__container {
     overflow-y: scroll;
+}
+
+.winners__table {
+    border-collapse: collapse;
+
+    thead {
+        font-weight: 900;
+        border-bottom: 1px dotted #e2dccd;
+        margin-bottom: 5px;
+
+        td {
+            padding: 10px;
+        }
+    }
+
+    td {
+        padding: 5px;
+
+    }
+
+    tbody {
+        tr:first-of-type {
+            font-weight: 900;
+            color: #b7974c;
+        }
+
+        tr:nth-of-type(2) {
+            font-weight: 900;
+            color: #a0a0a0;
+        }
+        tr:nth-of-type(3) {
+            font-weight: 900;
+            color: #9d704f;
+        }
+    }
+
+
 }
 
 .winners__container::-webkit-scrollbar {

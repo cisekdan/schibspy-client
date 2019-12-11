@@ -34,7 +34,7 @@ const Form = ({handleSubmit}) => {
       <div className="form__form-group">
         <label htmlFor="name-input"
                className="form__label">
-          Podaj imię
+          Podaj nazwę drużyny
         </label>
         <input id="name-input"
                className="form__input"
