@@ -57,6 +57,7 @@ export function initContextValue() {
             setShowListOfWinners(true);
             setWinnersList(winnersList.players);
         });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -13,8 +13,19 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background-image:url('../img/quiz.gif');
-    background-size: cover;
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1000;
+      overflow: hidden;
+    }
   }
 
   &__overlay {
