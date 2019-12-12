@@ -7,7 +7,7 @@ export default ({
     autoPlay
     muted
     playsInline
-    preload
+    preload="true"
     loop
     src="/loop.mp4"
     style={{
