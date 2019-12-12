@@ -10,10 +10,10 @@ function Answers() {
         if(player.mode !== "player"){
             setShowAlert(true);
             setTimeout(()=>setShowAlert(false), 2000);
-            switchToFullScreen();
+            //switchToFullScreen();
             return
         }
-        switchToFullScreen();
+        //switchToFullScreen();
         if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
         }

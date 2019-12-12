@@ -7,8 +7,8 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    switchToFullScreen();
     setRegisteredUser(e.target.name.value);
+    //switchToFullScreen()
 
   };
 
