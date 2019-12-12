@@ -63,7 +63,7 @@ export function initContextValue() {
 
     useEffect(() => {
         if(socket && registeredUser) {
-            socket.emit('join', {name: registeredUser, password: "gowno"});
+            socket.emit('join', {name: registeredUser});
         }
     }, [registeredUser]);
 
