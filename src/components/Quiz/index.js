@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import "../../scss/Quiz.scss";
 import Answers from "./Answers";
 import { QuizContainer } from "../../QuizContainer";
-import YouTube from 'react-youtube';
 import Header from "./Header";
+import Video from '../Video';
 
 const videoOptions = {
   playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -42,7 +42,7 @@ const Quiz = () => {
         {/*  </div>*/}
         {/*</div>*/}
         <div className="quiz__background">
-          <video autoPlay muted playsInline loop src="/quiz.mp4"/>
+          <Video />
         </div>
         {showAlert &&<div className="quiz__overlay">
            <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
