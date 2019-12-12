@@ -3,7 +3,7 @@ import "../../scss/Quiz.scss";
 import Answers from "./Answers";
 import { QuizContainer } from "../../QuizContainer";
 import Header from "./Header";
-import Video from '../Video';
+import Video from './Video';
 
 const videoOptions = {
   playerVars: { // https://developers.google.com/youtube/player_parameters

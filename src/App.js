@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "./scss/App.scss";
 import Display from "./Display";
-import Video from './components/Video';
+import Video from './components/Quiz/Video';
 
 function App() {
     const [windowHeight, setWindowHeight] = useState(null);
