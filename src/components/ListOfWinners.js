@@ -8,7 +8,8 @@ const ListOfWinners = () => {
   return (
     <div className="winners">
       <div className="winners__card">
-        <div className="winners__img-container">
+        <div className="winners__header">
+          <h2>Ranking</h2>
           <img height="40"
                alt="winners"
                className="winners__medal"
@@ -16,13 +17,26 @@ const ListOfWinners = () => {
         </div>
         <div className="winners__container">
           {winnersList.length > 0 ?
-            winnersList.map((winner, index) =>
-            <div key={index}
-                 className="winners__winner">
-              <div>{winner.name}</div>
-              <div>{winner.score}</div>
-              <img src={winner.avatarUrl} />
-            </div>)
+              <table className="winners__table">
+                <thead>
+                <tr>
+                  <td>Drużyna</td>
+                  <td>Wynik</td>
+                </tr>
+                </thead>
+                <tbody>
+                {winnersList.map((winner, index) => (
+                  <tr key={index} className="winners__winner">
+                    <td className="winners__winner__player-info">
+                      <><img width="30px" height="30px" src={winner.avatarUrl} /><p>{winner.name}</p></>
+                    </td>
+                    <td className="winners__winner__score">
+                      {winner.score}
+                    </td>
+                  </tr>))}
+                </tbody>
+                </table>
+
             : <div>Nikt nie wygrał</div>}
         </div>
       </div>
