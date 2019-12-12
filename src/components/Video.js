@@ -9,7 +9,7 @@ export default ({
     playsInline
     preLoad
     loop
-    src="/quiz.mp4"
+    src="/loop.mp4"
     style={{
       display: hidden ? 'none' : 'block',
     }}
