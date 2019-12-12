@@ -1,6 +1,7 @@
 import React from 'react';
 import "./scss/App.scss";
 import Display from "./Display";
+import Video from './components/Video';
 
 function App() {
     const { screen: { height: windowHeight } } = window;
@@ -11,6 +12,7 @@ function App() {
           <div className="container" style={{maxWidth: ratio * windowHeight, height: windowHeight}}>
             <Display/>
         </div>
+        <Video hidden />
       </div>
   );
 }

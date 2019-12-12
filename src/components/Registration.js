@@ -7,7 +7,7 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // switchToFullScreen();
+    switchToFullScreen();
     setRegisteredUser(e.target.name.value);
     setPassword(e.target.password.value);
   };
