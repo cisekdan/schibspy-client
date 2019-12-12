@@ -3,11 +3,12 @@ import "./scss/App.scss";
 import Display from "./Display";
 
 function App() {
-    const windowHeight = window.screen.height;
+    const { screen: { height: windowHeight } } = window;
+    const ratio = 0.5625;
   return (
       <div className="App">
           <div className="background"/>
-          <div className="container" style={{maxWidth: 0.5625*windowHeight, height: windowHeight}}>
+          <div className="container" style={{maxWidth: ratio * windowHeight, height: windowHeight}}>
             <Display/>
         </div>
       </div>
