@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "./scss/App.scss";
 import Display from "./Display";
+import Video from './components/Video';
 
 function App() {
     const [windowHeight, setWindowHeight] = useState(null);
@@ -14,6 +15,7 @@ function App() {
           <div className="container" style={{maxWidth: ratio * windowHeight, height: windowHeight}}>
             <Display/>
         </div>
+        <Video hidden />
       </div>
   );
 }
