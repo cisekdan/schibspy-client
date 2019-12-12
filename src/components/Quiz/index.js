@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import "../../scss/Quiz.scss";
 import Answers from "./Answers";
 import { QuizContainer } from "../../QuizContainer";
-import YouTube from 'react-youtube';
 import Header from "./Header";
+import Video from './Video';
 
 const videoOptions = {
   playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -15,7 +15,6 @@ const videoOptions = {
 };
 
 const Quiz = () => {
-
   const {question, questionNumber, showAlert, showSlasher, youTubeId} = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
@@ -42,7 +41,9 @@ const Quiz = () => {
         {/*    />*/}
         {/*  </div>*/}
         {/*</div>*/}
-        <div className="quiz__background"/>
+        <div className="quiz__background">
+          <Video />
+        </div>
         {showAlert &&<div className="quiz__overlay">
            <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
         </div>}

@@ -57,12 +57,13 @@ export function initContextValue() {
             setShowListOfWinners(true);
             setWinnersList(winnersList.players);
         });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if(socket && registeredUser) {
-            socket.emit('join', {name: registeredUser});
+            socket.emit('join', {name: registeredUser, password: "gowno"});
         }
     }, [registeredUser]);
 
@@ -72,6 +73,13 @@ export function initContextValue() {
 
     const generateNewAvatar = () => {
         socket.emit('generateNewAvatar');
+    };
+
+    const switchToFullScreen = () => {
+        if(document.fullscreenEnabled) {
+            document.body.requestFullscreen();
+            window.screen.orientation.lock("portrait-primary");
+        }
     };
 
     return {
@@ -89,6 +97,7 @@ export function initContextValue() {
         showAlert,
         setShowAlert,
         showSlasher,
+        switchToFullScreen,
         winnersList,
         showListOfWinners
     }

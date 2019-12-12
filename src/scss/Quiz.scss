@@ -1,5 +1,5 @@
 .quiz {
-  height: 100vh;
+  height: 100%;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -13,8 +13,20 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background-image:url('../img/quiz.gif');
-    background-size: cover;
+    overflow: hidden;
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      max-height: 110%;
+      width: auto;
+      height: auto;
+      z-index: -1000;
+      overflow: hidden;
+    }
   }
 
   &__overlay {
@@ -98,13 +110,12 @@
   }
   
   &__question-panel {
-    margin-top: 0;
+    margin: 10px 5px 20px 5px;
     padding: 20px;
     color: white;
     background: rgba(0,0,0,0.3);
     border-radius: 15px;
     font-weight: 900;
-    width: 90%;
     position: relative;
 
     &__timer {
@@ -161,8 +172,27 @@
 
         &__count {
           position: absolute;
-          top: -15%;
+          top: 10px;
           right: 15px;
+          max-width: 300px;
+          display: flex;
+          align-items: center;
+
+          &__remainder {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            z-index: 3;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          img {
+            margin-left: -5px;
+          }
         }
 
         &__inner {
