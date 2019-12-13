@@ -53,7 +53,7 @@ export function initContextValue () {
     socket.on("slasher", () => {
       setTimeout(() => {
         setShowSlasher(true);
-        setTimeout(() => setShowSlasher(false), 9500);
+        setTimeout(() => setShowSlasher(false), 12000);
       }, 3000);
     });
     socket.on("winners_list", (winnersList) => {
