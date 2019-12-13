@@ -24,7 +24,7 @@ const Quiz = () => {
   const _onReady = (event) => {
     setPlayer(event.target);
     event.target.playVideo();
-    //event.target.mute();
+    event.target.mute();
   };
 
   const _onEnd = (event) => {
@@ -65,10 +65,10 @@ const Quiz = () => {
           <div className="quiz__overlay__slasher">
             <video
                 autoPlay
-                //muted
+                muted
                 playsinline
                 preload="true"
-                src="/wideo.mp4"
+                src="/kosior.mp4"
             /></div>
         </div>}
         <Header/>
