@@ -27,13 +27,13 @@ function Answers() {
         if(!answer.answer_count) {
             return null;
         }
-        if(window.screen.width > 500 || answer.players.length <= 4) {
+        if(window.screen.width > 500 || answer.players.length <= 3) {
             return answer.players.map(player => <img alt="player avatar" key={player.id} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
 
         }
         return <>
-                <div className="answers__answer__count__remainder">+{answer.answer_count-4}</div>
-                {answer.players.splice(0, 4).map(player => <img alt="player avatar" key={player.id} width={"30px"} height={"30px"} src={player.avatarUrl}/>)}
+                <div className="answers__answer__count__remainder">+{answer.answer_count-3}</div>
+                {answer.players.splice(0, 3).map(player => <img alt="player avatar" key={player.id} width={"30px"} height={"30px"} src={player.avatarUrl}/>)}
               </>
     };
 
