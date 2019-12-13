@@ -20,7 +20,7 @@ export function initContextValue() {
     const [registeredUser, setRegisteredUser] = useState("");
     const [questionNumber, setQuestionNumber] = useState(1);
     const [quizStatus, setQuizStatus] = useState("");
-    const [youTubeId, setYouTubeId] = useState("OQGtryhPZ3c-");
+    const [videoUrl, setVideoUrl] = useState('');
     const [question, setQuestion] = useState({});
     const [totalPlayers, setTotalPlayers] = useState(1);
     const [socket, setSocket] = useState(null);
@@ -30,6 +30,7 @@ export function initContextValue() {
     const [showSlasher, setShowSlasher] = useState(false);
     const [winnersList, setWinnersList] = useState([]);
     const [showListOfWinners, setShowListOfWinners] = useState(false);
+    const [quizVideos, setQuizVideos] = useState([]);
 
     useEffect(() => {
         const socket = io('wss://schibspy-server.herokuapp.com');
@@ -39,10 +40,11 @@ export function initContextValue() {
                 setQuestion(msg.current_question);
             }
             setQuestionNumber(parseInt(msg.current_question_position)+1);
-            setYouTubeId(msg.youtube_id);
+            setVideoUrl(msg.movie_url);
             setQuizStatus(msg.status);
             setQuestionCount(msg.question_count);
             setPlayer(msg.player);
+            setQuizVideos(msg.movies);
         });
         socket.on('presence_state', ({count}) => {
             setTotalPlayers(count);
@@ -83,22 +85,24 @@ export function initContextValue() {
     };
 
     return {
-        question,
-        player,
-        questionNumber,
-        youTubeId,
-        quizStatus,
-        questionCount,
-        registeredUser,
-        setRegisteredUser,
-        totalPlayers,
-        sendChosenAnswer,
-        generateNewAvatar,
-        showAlert,
-        setShowAlert,
-        showSlasher,
-        switchToFullScreen,
-        winnersList,
-        showListOfWinners
+      socket,
+      question,
+      player,
+      questionNumber,
+      videoUrl,
+      quizStatus,
+      questionCount,
+      registeredUser,
+      setRegisteredUser,
+      totalPlayers,
+      sendChosenAnswer,
+      generateNewAvatar,
+      showAlert,
+      setShowAlert,
+      showSlasher,
+      switchToFullScreen,
+      winnersList,
+      showListOfWinners,
+      quizVideos,
     }
 }

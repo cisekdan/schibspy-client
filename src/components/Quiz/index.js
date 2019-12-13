@@ -3,7 +3,7 @@ import "../../scss/Quiz.scss";
 import Answers from "./Answers";
 import { QuizContainer } from "../../QuizContainer";
 import Header from "./Header";
-import Video from '../Video';
+import Video from '../Video/Video';
 
 const videoOptions = {
   playerVars: { // https://developers.google.com/youtube/player_parameters
@@ -15,7 +15,7 @@ const videoOptions = {
 };
 
 const Quiz = () => {
-  const {question, questionNumber, showAlert, showSlasher, youTubeId} = useContext(QuizContainer.QuizContext);
+  const { question, questionNumber, showAlert, showSlasher, videoUrl } = useContext(QuizContainer.QuizContext);
   const hideQuestionPanel = questionNumber === 0 || question.status === "hidden";
   const {seconds_left: secondsLeft, title} = question;
   
@@ -29,20 +29,8 @@ const Quiz = () => {
 
   return (
       <div className="quiz">
-        { /* VIDEO FROM YOUTUBE VERSION * /}
-        {/*<div className="video-background">*/}
-        {/*  <div className="video-foreground">*/}
-        {/*    <YouTube*/}
-        {/*        videoId={youTubeId}*/}
-        {/*        opts={videoOptions}*/}
-        {/*        className="video-iframe"*/}
-        {/*        onReady={_onReady}*/}
-        {/*        onEnd={_onEnd}*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
         <div className="quiz__background">
-          <Video />
+          <Video url={videoUrl} />
         </div>
         {showAlert &&<div className="quiz__overlay">
            <div className="quiz__overlay__alert">Możesz tylko oglądać grę</div>
