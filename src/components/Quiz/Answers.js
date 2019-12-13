@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {QuizContainer} from "../../QuizContainer";
 
 function Answers() {
-    const {question, sendChosenAnswer, player, setShowAlert, switchToFullScreen} = useContext(QuizContainer.QuizContext);
+    const {question, sendChosenAnswer, player, setShowAlert} = useContext(QuizContainer.QuizContext);
     const {answers, seconds_left: secondsLeft, status: questionStatus, correct_answer: correctAnswer, total_responses: totalResponses} = question;
     const playersAnswer = player.answers ? player.answers[question.id] : null;
 
@@ -10,10 +10,10 @@ function Answers() {
         if(player.mode !== "player"){
             setShowAlert(true);
             setTimeout(()=>setShowAlert(false), 2000);
-            switchToFullScreen();
+            //switchToFullScreen();
             return
         }
-        switchToFullScreen();
+        //switchToFullScreen();
         if (secondsLeft && !playersAnswer) {
             sendChosenAnswer(id)
         }
@@ -24,10 +24,17 @@ function Answers() {
     };
 
     const displayAvatars = (answer) => {
-        if(!answer.players) {
+        if(!answer.answer_count) {
             return null;
         }
-        return answer.players.map(player => <img alt="player avatar" key={player.name} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
+        if(window.screen.width > 500 || answer.players.length <= 4) {
+            return answer.players.map(player => <img alt="player avatar" key={player.id} width={"30px"} height={"30px"} src={player.avatarUrl}/>)
+
+        }
+        return <>
+                <div className="answers__answer__count__remainder">+{answer.answer_count-4}</div>
+                {answer.players.splice(0, 4).map(player => <img alt="player avatar" key={player.id} width={"30px"} height={"30px"} src={player.avatarUrl}/>)}
+              </>
     };
 
     const setAnswerColors = (answerId) => {
@@ -71,21 +78,21 @@ function Answers() {
                      className={`answers__answer__inner ${setAnswerColors(answers[0].id)}`}>
                 </div>
                 <p className="answers__answer__text"> {answers[0].body}</p>
-                <p className="answers__answer__count">{displayAvatars(answers[0])}</p>
+                <div className="answers__answer__count">{displayAvatars(answers[0])}</div>
             </div>
             <div className="answers__answer">
                 <div style={{width: `${setBarWidth(answers[1])}%`}}
                      className={`answers__answer__inner ${setAnswerColors(answers[1].id)}`}>
                 </div>
                 <p className="answers__answer__text">{answers[1].body}</p>
-                <p className="answers__answer__count">{displayAvatars(answers[1])}</p>
+                <div className="answers__answer__count">{displayAvatars(answers[1])}</div>
             </div>
             <div className="answers__answer">
                 <div style={{width: `${setBarWidth(answers[2])}%`}}
                      className={`answers__answer__inner ${setAnswerColors(answers[2].id)}`}>
                 </div>
                 <p className="answers__answer__text"> {answers[2].body}</p>
-                <p className="answers__answer__count">{displayAvatars(answers[2])}</p>
+                <div className="answers__answer__count">{displayAvatars(answers[2])}</div>
             </div>
         </div>
     );
